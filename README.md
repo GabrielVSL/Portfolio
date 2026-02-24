@@ -8,7 +8,7 @@
 
 ## 📸 Preview do Projeto
 
-![Preview do Portfólio](link-para-sua-imagem-ou-gif-aqui.gif)
+![Preview do Portfólio](https://s8.ezgif.com/tmp/ezgif-8ab6938045ca0e8a.gif)
 
 ---
 
