@@ -3,12 +3,16 @@
 > Um portfólio minimalista, imersivo e de alta performance, construído para destacar habilidades em desenvolvimento web full stack e arquitetura de software.
 
 [![Deploy Status](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)](https://portfolio-ten-jade-lthcg1l3d5.vercel.app/)
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)]()
-[![Three.js](https://img.shields.io/badge/ThreeJs-black?style=for-the-badge&logo=three.js&logoColor=white)]()
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![Three.js](https://img.shields.io/badge/ThreeJs-black?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
 
 ## 📸 Preview do Projeto
 
-![Preview do Portfólio](https://s8.ezgif.com/tmp/ezgif-8ab6938045ca0e8a.gif)
+<div align="center">
+  <img src="https://s8.ezgif.com/tmp/ezgif-8ab6938045ca0e8a.gif" alt="Preview do Portfólio 3D" width="800" />
+  <br />
+  <sub>Nota: O link temporário do EZGif expirará em breve. Lembre-se de subir o arquivo GIF permanentemente.</sub>
+</div>
 
 ---
 
@@ -16,9 +20,19 @@
 
 O design foi focado em uma estética "Dark Tech" minimalista, onde a tipografia fina e os elementos 3D contrastam para criar uma experiência premium, focada na legibilidade e na fluidez.
 
-### Wireframe Inicial
-*(Adicione aqui a imagem do seu rascunho/wireframe)*
-![Wireframe do Layout](link-para-sua-imagem-do-wireframe.png)
+### Wireframes Iniciais
+
+<div align="center">
+  <img src="./assets/wireframe/home.png" alt="Wireframe Home" width="600" />
+  <br/><br/>
+  <img src="./assets/wireframe/projects.png" alt="Wireframe Projetos" width="600" />
+  <br/><br/>
+  <img src="./assets/wireframe/about.png" alt="Wireframe Sobre" width="600" />
+  <br/><br/>
+  <img src="./assets/wireframe/xp.png" alt="Wireframe Experiências" width="600" />
+  <br/><br/>
+  <img src="./assets/wireframe/contact.png" alt="Wireframe Contato" width="600" />
+</div>
 
 ---
 
@@ -54,11 +68,11 @@ Sou estudante de Engenharia de Software na PUC Minas e atuo com suporte e infrae
 
 1. Clone o repositório:
 ```bash
-git clone [https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git](https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git)
+git clone [https://github.com/GabrielVSL/Portfolio](https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git)
 ```
 Acesse a pasta do projeto:
 ```bash
-cd SEU-REPOSITORIO/frontend
+cd Portifolio/frontend
 ```
 Instale as dependências:
 
