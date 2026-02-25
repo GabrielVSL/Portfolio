@@ -1,10 +1,11 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, ContactShadows } from '@react-three/drei';
 
-import AbstractTechObject from './components/3d/AbstractTechObject';
-import FloatingSmokeBackground from './components/3d/FloatingSmokeBackground';
+import TechObjectsCarousel from './components/3d/TechObjectsCarousel';
+import SpaceBackground from './components/3d/SpaceBackground';
 import HomeSection from './components/ui/HomeSection';
+import SoundControl from './components/ui/SoundControl';
 import ProjectsSection from './components/ui/ProjectsSection';
 import ExperiencesSection from './components/ui/ExperiencesSection';
 import AboutSection from './components/ui/AboutSection';
@@ -27,12 +28,15 @@ export default function LandingPage() {
           eventSource={containerRef} 
           eventPrefix="client"
         >
-          <FloatingSmokeBackground currentSection={section} />
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={2} color={"#ffffff"} />
-          <AbstractTechObject currentSection={section} />
-          <Environment preset="city" />
-          <ContactShadows position={[0, -2.2, 0]} opacity={0.6} scale={10} blur={2.5} far={4.5} />
+          {/* Adicione o Suspense aqui! */}
+          <Suspense fallback={null}>
+            <SpaceBackground currentSection={section} />
+            <ambientLight intensity={0.5} />
+            <directionalLight position={[10, 10, 5]} intensity={2} color={"#ffffff"} />
+            <TechObjectsCarousel currentSection={section} />
+            <Environment preset="city" />
+            <ContactShadows position={[0, -2.2, 0]} opacity={0.6} scale={10} blur={2.5} far={4.5} />
+          </Suspense>
         </Canvas>
       </div>
 
@@ -44,6 +48,8 @@ export default function LandingPage() {
         <ExperiencesSection section={section} />
         <ContactSection section={section} />
 
+        <SoundControl />
+        
         <Navbar section={section} setSection={setSection} />
       </div>
 
