@@ -9,9 +9,8 @@
 ## 📸 Preview do Projeto
 
 <div align="center">
-  <img src="https://s8.ezgif.com/tmp/ezgif-8ab6938045ca0e8a.gif" alt="Preview do Portfólio 3D" width="800" />
+  <img src="./assets/images/preview.gif" alt="Preview do Portfólio 3D" width="800" />
   <br />
-  <sub>Nota: O link temporário do EZGif expirará em breve. Lembre-se de subir o arquivo GIF permanentemente.</sub>
 </div>
 
 ---
