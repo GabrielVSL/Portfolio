@@ -9,7 +9,7 @@
 ## 📸 Preview do Projeto
 
 <div align="center">
-  <img src="./assets/images/preview.gif" alt="Preview do Portfólio 3D" width="800" />
+  <img src="./assets/images/demonstracao.gif" alt="Preview do Portfólio 3D" width="800" />
   <br />
 </div>
 
