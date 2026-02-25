@@ -21,9 +21,27 @@ export default function Navbar({ section, setSection }) {
       >
         Projetos
       </button>
-      <button className="hover:text-white transition-colors duration-300">Sobre</button>
-      <button className="hover:text-white transition-colors duration-300">Experiências</button>
-      <button className="hover:text-white transition-colors duration-300">Contato</button>
+
+      <button 
+        onClick={() => setSection('sobre')}
+        className={`transition-colors duration-300 ${section === 'sobre' ? 'text-white' : 'hover:text-white'}`}
+      >
+        Sobre
+      </button>
+
+      <button 
+        onClick={() => setSection('experiencias')}
+        className={`transition-colors duration-300 ${section === 'experiencias' ? 'text-white' : 'hover:text-white'}`}
+      >
+        Experiências
+      </button>
+
+      <button 
+        onClick={() => setSection('contato')}
+        className={`transition-colors duration-300 ${section === 'contato' ? 'text-white' : 'hover:text-white'}`}
+      >
+        Contato
+      </button>
     </div>
-  );
+   );
 }
