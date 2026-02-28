@@ -2,3 +2,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* =========================================
+   CUSTOM SCROLLBAR - ESTILO DARK TECH
+   ========================================= */
+
+/* Firefox (Suporte básico) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 transparent;
+}
+
+/* Chrome, Edge e Safari (Suporte avançado) */
+
+/* 1. Largura da barra inteira */
+::-webkit-scrollbar {
+  width: 6px; /* Bem fina e elegante */
+  height: 6px;
+}
+
+/* 2. O trilho (fundo por onde a barra corre) */
+::-webkit-scrollbar-track {
+  background: transparent; /* Deixa transparente para mostrar as estrelas do fundo */
+  border-radius: 10px;
+}
+
+/* 3. A barra arrastável (Thumb) */
+::-webkit-scrollbar-thumb {
+  background: #3f3f46; /* Cor zinc-700 (cinza chumbo discreto) */
+  border-radius: 10px;
+}
+
+/* 4. A barra quando você passa o mouse por cima */
+::-webkit-scrollbar-thumb:hover {
+  background: #0077ff; /* Acende com o nosso Azul Cobalto da Navbar! */
+  /* Se você quiser o azul mais claro, pode trocar por #00e5ff */
+}
+
+/* =========================================
+   CORREÇÃO DO AUTOCOMPLETE (Fundo Branco)
+   ========================================= */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  /* Mantém a cor do texto clara (zinc-300) */
+  -webkit-text-fill-color: #d4d4d8 !important; 
+  
+  /* Cria uma sombra interna gigante de cor escura para "engolir" o branco do navegador */
+  -webkit-box-shadow: 0 0 0px 1000px #0a0a0a inset !important; 
+  
+  /* Trava qualquer outra mudança de cor de fundo que o navegador tente fazer */
+  transition: background-color 5000s ease-in-out 0s;
+}
