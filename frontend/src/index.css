@@ -58,3 +58,12 @@ textarea:-webkit-autofill:focus {
   /* Trava qualquer outra mudança de cor de fundo que o navegador tente fazer */
   transition: background-color 5000s ease-in-out 0s;
 }
+
+
+/* =========================================
+   WAKATIME BADGE - ESTILO DARK TECH
+   ========================================= */
+
+@keyframes expandWidth {
+  from { width: 0; }
+}
