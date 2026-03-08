@@ -10,15 +10,15 @@ export default function ExperiencesSection({ section }) {
   const [isFading, setIsFading] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Função do Scroll para preencher a linha do tempo
+  // Função do Scroll corrigida (O scrollProgress SÓ AUMENTA)
   const handleScroll = (e) => {
     const { scrollTop, scrollHeight, clientHeight } = e.target;
     const maxScroll = scrollHeight - clientHeight;
     if (maxScroll <= 0) return;
     
-    // Calcula a porcentagem do scroll
+    // Calcula a porcentagem do scroll e mantém sempre o maior valor
     const progress = Math.min(100, Math.max(0, (scrollTop / maxScroll) * 120));
-    setScrollProgress(progress);
+    setScrollProgress(prev => Math.max(prev, progress));
   };
 
   // Função para trocar o idioma com animação holográfica
@@ -35,21 +35,33 @@ export default function ExperiencesSection({ section }) {
   if (currentIndex === myIndex) positionClass = 'translate-x-0 opacity-100 pointer-events-auto';
   else if (currentIndex > myIndex) positionClass = '-translate-x-[100vw] opacity-0 pointer-events-none';
 
-  // Dicionário de Textos (Português / Inglês)
+  // Dicionário de Textos atualizado com as novas experiências e datas
   const content = {
     pt: {
       title: "Trajetória",
       exp1: {
         title: "Técnico em Informática / Dev",
         subtitle: "Colégio São Paulo da Cruz",
-        status: "Atual",
-        desc: <>Gerenciamento completo da infraestrutura de laboratórios e servidores. Atuação forte em automação de processos utilizando <span className="text-[#0077ff] font-medium">PowerShell</span> para administração de contas e permissões no Microsoft 365. Configuração e manutenção de servidores Linux (<span className="text-[#0077ff] font-medium">Ubuntu Server, CasaOS</span>) para backup e serviços de mídia. Além da infraestrutura, atuo no desenvolvimento de soluções Web, como o portal educacional utilizando <span className="text-[#0077ff] font-medium">React, HTML e integrações via JSON</span>.</>
+        date: "Fev 2025 - Atual",
+        desc: <>Gerenciamento completo da infraestrutura de laboratórios, servidores e suporte técnico aos usuários. Atuação forte em automação de processos utilizando <span className="text-[#0077ff] font-medium">PowerShell</span> para administração no Microsoft 365 e manutenção de servidores Linux. Além da infraestrutura, atuo no desenvolvimento de soluções Web, como portais educacionais utilizando <span className="text-[#0077ff] font-medium">React, HTML e integrações JSON</span>.</>
       },
       exp2: {
+        title: "Monitor de Desenvolvimento Web",
+        subtitle: "PUC Minas",
+        date: "Ago 2025 - Dez 2025 (6 meses)",
+        desc: <>Atuação como monitor da disciplina de Desenvolvimento de Interfaces Web (Semestre 2/2025). Auxílio direto aos alunos na compreensão e aplicação prática de tecnologias fundamentais e frameworks modernos. Foco em mentoria técnica, revisão de código e apoio na construção de interfaces responsivas, acessíveis e componentizadas.</>
+      },
+      exp3: {
         title: "Engenharia de Software",
         subtitle: "PUC Minas",
-        status: "Graduação em Andamento",
+        date: "Graduação em Andamento",
         desc: <>Desenvolvimento de base sólida em arquitetura de software e engenharia de requisitos. Foco aplicado em Algoritmos e Estruturas de Dados Avançadas (AEDS II), com implementações complexas utilizando linguagens de baixo nível, além de projetos Full Stack explorando o ecossistema <span className="text-[#0077ff] font-medium">C# / .NET</span>.</>
+      },
+      exp4: {
+        title: "Assistente de Loja",
+        subtitle: "CENTAURO",
+        date: "Jul 2024 - Fev 2025 (8 meses)",
+        desc: <>Atuação voltada para o atendimento direto ao cliente, trabalho em equipe e organização operacional da loja. Experiência valiosa no desenvolvimento de <span className="text-[#0077ff] font-medium">soft skills</span>, comunicação assertiva, controle de estoque e resolução eficiente de problemas no dinamismo do dia a dia do varejo.</>
       }
     },
     en: {
@@ -57,24 +69,38 @@ export default function ExperiencesSection({ section }) {
       exp1: {
         title: "IT Support / Dev Intern",
         subtitle: "Colégio São Paulo da Cruz",
-        status: "Current",
-        desc: <>Complete management of laboratory and server infrastructure. Strong focus on process automation using <span className="text-[#0077ff] font-medium">PowerShell</span> for account and permission administration in Microsoft 365. Configuration and maintenance of Linux servers (<span className="text-[#0077ff] font-medium">Ubuntu Server, CasaOS</span>) for backup and media services. Besides infrastructure, I work on Web development solutions, such as the educational portal using <span className="text-[#0077ff] font-medium">React, HTML, and JSON integrations</span>.</>
+        date: "Feb 2025 - Present",
+        desc: <>Complete management of laboratory infrastructure, servers, and technical support. Strong focus on process automation using <span className="text-[#0077ff] font-medium">PowerShell</span> for Microsoft 365 administration and Linux server maintenance. Besides infrastructure, I work on Web development solutions, such as educational portals using <span className="text-[#0077ff] font-medium">React, HTML, and JSON integrations</span>.</>
       },
       exp2: {
+        title: "Web Development Teaching Assistant",
+        subtitle: "PUC Minas",
+        date: "Aug 2025 - Dec 2025 (6 months)",
+        desc: <>Acted as a Teaching Assistant for the Web Interfaces Development course. Provided direct support to students in understanding and applying fundamental technologies and modern frameworks. Focused on technical mentoring, code review, and support in building responsive, accessible, and componentized interfaces.</>
+      },
+      exp3: {
         title: "Software Engineering",
         subtitle: "PUC Minas",
-        status: "Ongoing Degree",
+        date: "Ongoing Degree",
         desc: <>Development of a solid foundation in software architecture and requirements engineering. Applied focus on Advanced Algorithms and Data Structures (AEDS II), with complex implementations using low-level languages, as well as Full Stack projects exploring the <span className="text-[#0077ff] font-medium">C# / .NET</span> ecosystem.</>
+      },
+      exp4: {
+        title: "Store Assistant",
+        subtitle: "CENTAURO",
+        date: "Jul 2024 - Feb 2025 (8 months)",
+        desc: <>Focused on direct customer service, teamwork, and operational store organization. Valuable experience in developing <span className="text-[#0077ff] font-medium">soft skills</span>, assertive communication, inventory control, and efficient problem-solving in the dynamic retail environment.</>
       }
     }
   };
 
   const t = content[lang];
 
-  // Configuração das Experiências (Com o "trigger" de rolagem)
+  // Configuração das Experiências (Ajustei os triggers para caberem 4 itens)
   const experiencesData = [
-    { ...t.exp1, trigger: 0 },   // Acende imediatamente
-    { ...t.exp2, trigger: 40 }   // Acende ao rolar 40% da tela
+    { ...t.exp1, trigger: 0 },   
+    { ...t.exp2, trigger: 25 },  
+    { ...t.exp3, trigger: 55 },  
+    { ...t.exp4, trigger: 85 }   
   ];
 
   // Classe dinâmica do holograma
@@ -91,7 +117,7 @@ export default function ExperiencesSection({ section }) {
       </div>
 
       <div 
-        className="relative z-10 w-full h-full overflow-y-auto pb-32 scroll-smooth"
+        className="relative z-10 w-full h-full overflow-y-auto pb-32 scroll-smooth custom-scrollbar"
         onScroll={handleScroll}
       >
         <div className="h-[15vh] w-full pointer-events-none"></div>
@@ -153,7 +179,7 @@ export default function ExperiencesSection({ section }) {
                   <div className={`p-6 md:p-8 rounded-xl backdrop-blur-md transition-all duration-700 ${
                     isActive 
                       ? 'bg-[#050505]/80 border border-[#0077ff]/30 shadow-lg' 
-                      : 'bg-[#050505]/40 border border-white/5'
+                      : 'bg-[#050505]/40 border border-white/5 opacity-50'
                   }`}>
                     <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-3">
                       <h3 className={`text-xl md:text-2xl tracking-[0.2em] font-light uppercase transition-colors duration-500 ${isActive ? 'text-white' : 'text-zinc-400'}`}>
@@ -161,8 +187,9 @@ export default function ExperiencesSection({ section }) {
                       </h3>
                     </div>
                     
-                    <h4 className={`text-xs md:text-sm tracking-[0.2em] font-light uppercase mb-6 transition-colors duration-500 ${isActive ? 'text-zinc-300' : 'text-zinc-500'}`}>
-                      {exp.subtitle} <span className="text-[#0077ff]/50 mx-2">|</span> <span className={isActive ? "text-[#0077ff]" : ""}>{exp.status}</span>
+                    {/* AQUI ESTÁ A DATA E O LOCAL */}
+                    <h4 className={`text-[10px] md:text-xs tracking-[0.2em] font-light uppercase mb-6 transition-colors duration-500 ${isActive ? 'text-zinc-300' : 'text-zinc-500'}`}>
+                      {exp.subtitle} <span className="text-[#0077ff]/50 mx-2">|</span> <span className={isActive ? "text-[#0077ff]" : ""}>{exp.date}</span>
                     </h4>
                     
                     <p className="text-zinc-400 font-light tracking-widest text-sm md:text-base leading-relaxed text-justify md:text-left">
@@ -176,7 +203,8 @@ export default function ExperiencesSection({ section }) {
 
           </div>
         </div>
-
+        
+        <div className="h-[20vh] w-full pointer-events-none"></div>
       </div>
     </div>
   );

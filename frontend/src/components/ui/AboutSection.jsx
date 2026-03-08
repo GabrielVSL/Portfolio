@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react';
 import { getWakatimeData } from '../../services/wakatimeService';
 
 // --- DICIONÁRIO DE TRADUÇÃO ---
-// Movido para fora do componente para evitar recriação a cada render
 const TRANSLATIONS = {
   pt: {
     title: "Quem Sou Eu",
     subtitle: "Desenvolvedor • Analista de Infra • Tech Entusiasta",
-    p1: <>Sou estudante de <strong className="text-white font-normal">Engenharia de Software na PUC Minas</strong> e atualmente atuo na área de Suporte de TI e Desenvolvimento. Minha trajetória é marcada por uma paixão dupla: entender como as máquinas funcionam no baixo nível e construir soluções modernas na web.</>,
-    p2: <>No dia a dia, gerencio infraestruturas de servidores e automatizo processos complexos. Ao mesmo tempo, dou vida a aplicações completas, fluindo entre o front-end com <span className="text-[#0077ff] font-medium">React e Tailwind CSS</span> e a robustez do back-end utilizando <span className="text-[#0077ff] font-medium">C# e .NET</span>.</>,
-    p3: "Fora do terminal e das IDEs, sou um aficionado por montagem e otimização de hardware (PC Building) e dedico meu tempo livre a jogos competitivos e de sobrevivência. Acredito que a tecnologia deve ser tanto performática quanto visualmente impactante.",
+    p1: <>Sou estudante de <strong className="text-white font-normal">Engenharia de Software na PUC Minas</strong> e atualmente atuo na área de Suporte de TI e Desenvolvimento. Minha trajetória é marcada por uma paixão dupla: entender como a infraestrutura funciona no baixo nível e construir soluções modernas e completas em software.</>,
+    p2: <>No dia a dia, gerencio infraestruturas de servidores e automatizo processos de TI. Ao mesmo tempo, dou vida a aplicações ponta a ponta, fluindo entre o ecossistema Apple com <span className="text-[#0077ff] font-medium">Swift</span>, o front-end avançado com <span className="text-[#0077ff] font-medium">React e Tailwind</span>, e back-ends robustos utilizando <span className="text-[#0077ff] font-medium">Node.js e C#</span>.</>,
+    p3: "Fora do terminal e das IDEs, sou um aficionado por montagem e otimização de hardware (PC Building) e dedico meu tempo livre a jogos competitivos e de sobrevivência. Acredito que a tecnologia deve ser performática, escalável e visualmente impactante.",
     stackTitle: "Stack Principal",
     infraTitle: "Infra & Tools",
     statsBtn: "STATS",
@@ -32,9 +31,9 @@ const TRANSLATIONS = {
   en: {
     title: "About Me",
     subtitle: "Developer • Infra Analyst • Tech Enthusiast",
-    p1: <>I am a <strong className="text-white font-normal">Software Engineering student at PUC Minas</strong>, currently working in IT Support and Development. My journey is driven by a dual passion: understanding how machines work at a low level and building modern web solutions.</>,
-    p2: <>On a daily basis, I manage server infrastructures and automate complex processes. At the same time, I bring full applications to life, flowing between the front-end with <span className="text-[#0077ff] font-medium">React and Tailwind CSS</span> and the robustness of the back-end using <span className="text-[#0077ff] font-medium">C# and .NET</span>.</>,
-    p3: "Outside the terminal and IDEs, I'm an aficionado for hardware assembly and optimization (PC Building), and I spend my free time on competitive and survival games. I believe technology should be both performant and visually impactful.",
+    p1: <>I am a <strong className="text-white font-normal">Software Engineering student at PUC Minas</strong>, currently working in IT Support and Development. My journey is driven by a dual passion: understanding how infrastructure works at a low level and building modern, end-to-end software solutions.</>,
+    p2: <>On a daily basis, I manage server infrastructures and automate IT processes. At the same time, I bring full applications to life, flowing between the Apple ecosystem with <span className="text-[#0077ff] font-medium">Swift</span>, advanced front-ends with <span className="text-[#0077ff] font-medium">React and Tailwind</span>, and robust back-ends using <span className="text-[#0077ff] font-medium">Node.js and C#</span>.</>,
+    p3: "Outside the terminal and IDEs, I'm an aficionado for hardware assembly and optimization (PC Building), and I spend my free time on competitive and survival games. I believe technology should be performant, scalable, and visually impactful.",
     stackTitle: "Main Stack",
     infraTitle: "Infra & Tools",
     statsBtn: "STATS",
@@ -87,11 +86,9 @@ export default function AboutSection({ section }) {
       
       if (isMounted) {
         if (data) {
-// 1. Processamento das Estatísticas de Tempo (Activity)
           let totalSeconds = 0;
           let avgSeconds = 0;
 
-          // Cenário A: O WakaTime retornou um Array (lista de dias)
           if (Array.isArray(data.activity)) {
             data.activity.forEach(day => {
               totalSeconds += day?.grand_total?.total_seconds || day?.total_seconds || 0;
@@ -99,22 +96,17 @@ export default function AboutSection({ section }) {
             const daysCount = data.activity.length > 0 ? data.activity.length : 1;
             avgSeconds = totalSeconds / daysCount;
           } 
-          // Cenário B: O JSON consolidado que você enviou (All Time)
           else if (data.activity?.grand_total) {
-            // Pegamos os valores exatos calculados pelo WakaTime
             totalSeconds = data.activity.grand_total.total_seconds || 0;
             avgSeconds = data.activity.grand_total.daily_average || 0;
           }
 
           const stats = {
-            // Isso vai resultar nos seus "191 hrs"
             totalHours: Math.floor(totalSeconds / 3600),
-            // Isso vai resultar em "1 hr 50 mins" (baseado nos 6641s da média)
             avgH: Math.floor(avgSeconds / 3600),
             avgM: Math.floor((avgSeconds % 3600) / 60)
           };
 
-          // 2. Setando os dados no Estado
           setWakaData({
             languages: Array.isArray(data.languages) ? data.languages.slice(0, 5) : [],
             os: Array.isArray(data.os) ? data.os.slice(0, 3) : [], 
@@ -152,7 +144,6 @@ export default function AboutSection({ section }) {
   return (
     <div className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${positionClass}`}>
       
-      {/* TÍTULO GIGANTE DE FUNDO */}
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0">
         <h2 className="text-[12vw] font-black text-white/[0.02] tracking-[0.4em] whitespace-nowrap">SOBRE MIM</h2>
       </div>
@@ -160,7 +151,6 @@ export default function AboutSection({ section }) {
       <div className="relative z-10 w-full h-full overflow-y-auto pb-32 scroll-smooth">
         <div className="h-[15vh] w-full pointer-events-none"></div>
 
-        {/* --- HEADER (TÍTULO E IDIOMAS) --- */}
         <div className="max-w-6xl mx-auto px-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-20">
           <div className={fadeClass}>
             <h2 className="text-3xl md:text-5xl font-extralight tracking-[0.3em] text-white uppercase border-l-2 border-[#0077ff] pl-6 transition-all duration-500">
@@ -178,10 +168,8 @@ export default function AboutSection({ section }) {
           </div>
         </div>
 
-        {/* --- CORPO PRINCIPAL (TEXTO + CARDS) --- */}
         <div className={`max-w-6xl mx-auto px-8 relative z-20 flex flex-col lg:flex-row gap-8 lg:gap-12 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${fadeClass}`}>
           
-          {/* COLUNA ESQUERDA: Biografia */}
           <div className={`transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] origin-left flex-shrink-0 ${showWakatime ? 'w-0 lg:w-0 opacity-0 overflow-hidden m-0 p-0 border-0' : 'w-full lg:w-[58%] opacity-100'}`}>
             <div className="w-full lg:w-[600px] p-8 md:p-10 rounded-2xl bg-[#050505]/60 backdrop-blur-md border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
               <p className="text-zinc-400 font-light tracking-widest text-sm md:text-base leading-relaxed text-justify mb-6">{t.p1}</p>
@@ -190,17 +178,14 @@ export default function AboutSection({ section }) {
             </div>
           </div>
 
-          {/* COLUNA DIREITA: Interatividade (Stack e Infra) */}
           <div className={`transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col flex-grow ${showWakatime ? 'w-full lg:w-full gap-0' : 'w-full lg:w-[42%] gap-8'}`}>
             
-            {/* CARD 1: STACK / DASHBOARD WAKATIME */}
             <div className={`relative flex-shrink-0 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] rounded-2xl overflow-hidden ${
               showWakatime 
                 ? 'h-[850px] lg:h-[500px] bg-[#050505]/95 backdrop-blur-2xl border border-[#0077ff]/40 shadow-[0_0_80px_rgba(0,119,255,0.2)]' 
                 : 'h-[250px] bg-[#050505]/80 backdrop-blur-xl border border-white/5'
             }`}>
               
-              {/* --- MODO: COMPACTO (Visão Inicial) --- */}
               <div className={`absolute inset-0 p-8 flex flex-col transition-all duration-500 ease-in-out ${showWakatime ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100 pointer-events-auto delay-300'}`}>
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-white text-sm tracking-[0.3em] font-medium uppercase flex items-center gap-3">
@@ -210,10 +195,10 @@ export default function AboutSection({ section }) {
                   
                   <button 
                     onClick={() => setShowWakatime(true)}
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-zinc-800 text-xs tracking-[0.3em] font-light uppercase text-zinc-500 hover:text-white hover:border-white transition-all duration-300 group"
+                    className="text-xs tracking-widest uppercase px-5 py-2.5 border border-[#0077ff]/50 text-[#0077ff] hover:bg-[#0077ff] hover:text-white rounded-lg transition-all duration-300 flex items-center gap-2 whitespace-nowrap group"
                   >
                     {t.statsBtn}
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-zinc-500 group-hover:text-white transition-colors">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="transition-colors">
                       <rect x="3" y="12" width="4" height="8">
                         <animate attributeName="y" values="12;4;12" dur="1s" repeatCount="indefinite" />
                         <animate attributeName="height" values="8;16;8" dur="1s" repeatCount="indefinite" />
@@ -230,8 +215,9 @@ export default function AboutSection({ section }) {
                   </button>
                 </div>
                 
+                {/* 👇 AQUI: AS TECNOLOGIAS ATUALIZADAS 👇 */}
                 <div className="flex flex-wrap gap-3">
-                  {['React', 'Tailwind CSS', 'C#', '.NET', 'JavaScript', 'HTML/CSS', 'SQL', 'C / C++'].map((skill, i) => (
+                  {['React', 'Node.js', 'Swift', 'Tailwind CSS', 'PostgreSQL', 'C#', 'JavaScript', 'SQL'].map((skill, i) => (
                     <span key={i} className="px-4 py-2 text-xs font-light tracking-widest text-zinc-400 uppercase border border-zinc-800 rounded-full cursor-default hover:text-[#00e5ff] hover:border-[#00e5ff] transition-all">
                       {skill}
                     </span>
@@ -239,10 +225,8 @@ export default function AboutSection({ section }) {
                 </div>
               </div>
 
-              {/* --- MODO: DASHBOARD EXPANDIDO --- */}
-              <div className={`absolute inset-0 pt-8 md: p-12 flex flex-col transition-all duration-500 ease-in-out overflow-hidden ${showWakatime ? 'opacity-100 scale-100 pointer-events-auto delay-[400ms]' : 'opacity-0 scale-105 pointer-events-none'}`}>
+              <div className={`absolute inset-0 pt-8 md:p-12 flex flex-col transition-all duration-500 ease-in-out overflow-hidden ${showWakatime ? 'opacity-100 scale-100 pointer-events-auto delay-[400ms]' : 'opacity-0 scale-105 pointer-events-none'}`}>
                 
-                {/* Header do Dashboard */}
                 <div className="flex flex-col md:flex-row justify-between md:items-start border-b border-[#0077ff]/20 pb-5 mb-6 gap-4">
                   <div className="flex items-start gap-4">
                     <span className="w-3 h-3 bg-[#0077ff] rounded-full animate-pulse shadow-[0_0_12px_#0077ff] mt-1.5"></span>
@@ -253,16 +237,14 @@ export default function AboutSection({ section }) {
                     </div>
                   </div>
                   
-                <button 
-                  onClick={() => setShowWakatime(false)}
-                  // Adicionei mt-1.5 para dar um leve empurrão
-                  className="text-zinc-500 hover:text-white text-[15px] tracking-[0.2em] uppercase transition-colors mt-1"
-                >
-                  [ {t.minimizeBtn} ]
-                </button>
+                  <button 
+                    onClick={() => setShowWakatime(false)}
+                    className="text-[10px] md:text-xs tracking-widest uppercase px-5 py-2.5 border border-white/20 text-white hover:bg-white/5 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap mt-2 md:mt-0"
+                  >
+                    <i className="fas fa-compress-alt"></i> {t.minimizeBtn}
+                  </button>
                 </div>
 
-                {/* Grid Interno do Dashboard */}
                 <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-10">
                   
                   {isLoading ? (
@@ -275,13 +257,11 @@ export default function AboutSection({ section }) {
                     </div>
                   ) : (
                     <>
-                  {/* Bloco 1: Linguagens + Sistemas Operacionais (Esquerda) */}
                   <div className="lg:col-span-2 flex flex-col justify-between h-full">
                     
-                    {/* Topo: Linguagens */}
                     <div className="flex-1">
                       <h3 className="text-zinc-500 text-[10px] tracking-[0.3em] uppercase mb-4">{t.stackDist}</h3>
-                      <div className="flex flex-col gap-3"> {/* Mudei de gap-4 para gap-3 aqui */}
+                      <div className="flex flex-col gap-3">
                         {wakaData.languages.map((lang, idx) => (
                           <div key={idx} className="flex flex-col gap-1.5 w-full">
                             <div className="flex justify-between items-end w-full">
@@ -300,8 +280,7 @@ export default function AboutSection({ section }) {
                       </div>
                     </div>
 
-                    {/* Fundo: Sistemas Operacionais */}
-                    <div className="mt-4 pt-4 border-t border-white/5"> {/* Reduzi o mt e pt aqui */}
+                    <div className="mt-4 pt-4 border-t border-white/5">
                       <h3 className="text-zinc-500 text-[10px] tracking-[0.3em] uppercase mb-3">{t.sysTitle}</h3>
                       <div className="flex flex-col md:flex-row gap-4 w-full">
                         {wakaData.os.map((sys, idx) => (
@@ -322,10 +301,8 @@ export default function AboutSection({ section }) {
 
                   </div>
 
-                  {/* Bloco 2: Produtividade e Categorias (Direita) */}
                   <div className="lg:col-span-1 flex flex-col justify-start h-full">
                     
-                    {/* Horas Totais e Média Diária */}
                     {wakaData.stats && (
                       <div className="mb-8">
                         <h3 className="text-zinc-500 text-[10px] tracking-[0.3em] uppercase mb-4">{t.prod}</h3>
@@ -346,7 +323,6 @@ export default function AboutSection({ section }) {
                       </div>
                     )}
 
-                    {/* Categorias (Workspace) */}
                     <div>
                       <h3 className="text-zinc-500 text-[10px] tracking-[0.3em] uppercase mb-4">{t.workspace}</h3>
                       <div className="space-y-4">
@@ -370,7 +346,6 @@ export default function AboutSection({ section }) {
               </div>
             </div>
 
-            {/* CARD 2: INFRA & TOOLS */}
             <div className={`transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] transform origin-top overflow-hidden rounded-2xl bg-[#050505]/80 backdrop-blur-xl border-white/5 ${
               showWakatime ? 'h-0 opacity-0 scale-95 border-transparent p-0' : 'h-[220px] opacity-100 scale-100 p-8 border'
             }`}>
