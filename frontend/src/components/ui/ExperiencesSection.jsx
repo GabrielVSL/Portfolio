@@ -50,18 +50,6 @@ export default function ExperiencesSection({ section }) {
         subtitle: "PUC Minas",
         date: "Ago 2025 - Dez 2025 (6 meses)",
         desc: <>Atuação como monitor da disciplina de Desenvolvimento de Interfaces Web (Semestre 2/2025). Auxílio direto aos alunos na compreensão e aplicação prática de tecnologias fundamentais e frameworks modernos. Foco em mentoria técnica, revisão de código e apoio na construção de interfaces responsivas, acessíveis e componentizadas.</>
-      },
-      exp3: {
-        title: "Engenharia de Software",
-        subtitle: "PUC Minas",
-        date: "Graduação em Andamento",
-        desc: <>Desenvolvimento de base sólida em arquitetura de software e engenharia de requisitos. Foco aplicado em Algoritmos e Estruturas de Dados Avançadas (AEDS II), com implementações complexas utilizando linguagens de baixo nível, além de projetos Full Stack explorando o ecossistema <span className="text-[#0077ff] font-medium">C# / .NET</span>.</>
-      },
-      exp4: {
-        title: "Assistente de Loja",
-        subtitle: "CENTAURO",
-        date: "Jul 2024 - Fev 2025 (8 meses)",
-        desc: <>Atuação voltada para o atendimento direto ao cliente, trabalho em equipe e organização operacional da loja. Experiência valiosa no desenvolvimento de <span className="text-[#0077ff] font-medium">soft skills</span>, comunicação assertiva, controle de estoque e resolução eficiente de problemas no dinamismo do dia a dia do varejo.</>
       }
     },
     en: {
@@ -77,18 +65,6 @@ export default function ExperiencesSection({ section }) {
         subtitle: "PUC Minas",
         date: "Aug 2025 - Dec 2025 (6 months)",
         desc: <>Acted as a Teaching Assistant for the Web Interfaces Development course. Provided direct support to students in understanding and applying fundamental technologies and modern frameworks. Focused on technical mentoring, code review, and support in building responsive, accessible, and componentized interfaces.</>
-      },
-      exp3: {
-        title: "Software Engineering",
-        subtitle: "PUC Minas",
-        date: "Ongoing Degree",
-        desc: <>Development of a solid foundation in software architecture and requirements engineering. Applied focus on Advanced Algorithms and Data Structures (AEDS II), with complex implementations using low-level languages, as well as Full Stack projects exploring the <span className="text-[#0077ff] font-medium">C# / .NET</span> ecosystem.</>
-      },
-      exp4: {
-        title: "Store Assistant",
-        subtitle: "CENTAURO",
-        date: "Jul 2024 - Feb 2025 (8 months)",
-        desc: <>Focused on direct customer service, teamwork, and operational store organization. Valuable experience in developing <span className="text-[#0077ff] font-medium">soft skills</span>, assertive communication, inventory control, and efficient problem-solving in the dynamic retail environment.</>
       }
     }
   };
@@ -98,9 +74,7 @@ export default function ExperiencesSection({ section }) {
   // Configuração das Experiências (Ajustei os triggers para caberem 4 itens)
   const experiencesData = [
     { ...t.exp1, trigger: 0 },   
-    { ...t.exp2, trigger: 25 },  
-    { ...t.exp3, trigger: 55 },  
-    { ...t.exp4, trigger: 85 }   
+    { ...t.exp2, trigger: 25 }   
   ];
 
   // Classe dinâmica do holograma
