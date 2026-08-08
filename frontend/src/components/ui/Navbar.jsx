@@ -7,6 +7,7 @@ const navItems = [
   { id: 'home', pt: 'Home', en: 'Home' },
   { id: 'sobre', pt: 'Sobre', en: 'About' },
   { id: 'projetos', pt: 'Projetos', en: 'Work' },
+  { id: 'tech', pt: 'Tecnologias', en: 'Tech' },
   { id: 'experiencias', pt: 'Trajetória', en: 'Journey' },
   { id: 'contato', pt: 'Contato', en: 'Contact' }
 ];
