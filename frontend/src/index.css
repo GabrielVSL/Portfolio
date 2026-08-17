@@ -11,6 +11,7 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: #3f3f46 transparent;
+  cursor: none !important;
 }
 
 /* Chrome, Edge e Safari (Suporte avançado) */

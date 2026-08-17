@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const projects = [
-  { id: 1, title: 'FINTECH APP', description: 'Redefinindo o futuro das transações digitais com uma interface *imersiva* e segura.', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop' },
-  { id: 2, title: 'E-COMMERCE', description: 'Uma experiência de compra fluida e focada na *conversão* máxima de vendas.', img: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=2194&auto=format&fit=crop' },
-  { id: 3, title: 'AWWWARDS', description: 'Explorações visuais premiadas com interações *brutais* de tirar o fôlego.', img: 'https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=2070&auto=format&fit=crop' },
-  { id: 4, title: 'WEB3 DASH', description: 'Monitoramento de criptomoedas com dados super-rápidos e atualizados em *tempo-real*.', img: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2232&auto=format&fit=crop' },
-  { id: 5, title: 'PORTFOLIO', description: 'Identidade visual única e brutalista para destacar *trabalhos* excepcionais.', img: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop' },
-  { id: 6, title: 'UI LIBRARY', description: 'Um sistema de design *escalável* e consistente para times de alta performance.', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop' },
-  { id: 7, title: 'BRANDING', description: 'Construção de marcas fortes e *memoráveis* no gigantesco ecossistema digital.', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop' },
+  { id: 1, title: 'PLANTEI', description: 'Plataforma interativa para monitoramento inteligente e *análise* do ciclo de vida botânico.', img: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=400&auto=format&fit=crop' },
+  { id: 2, title: 'COVERTE', description: 'Motor de automação educacional que processa e unifica relatórios PEI em um *único* padrão.', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=400&auto=format&fit=crop' },
+  { id: 3, title: 'RENTCARS', description: 'Sistema digital de ponta para *locação* e gerenciamento virtual de frotas de veículos.', img: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=400&auto=format&fit=crop' },
+  { id: 4, title: 'COLÉGIO', description: 'Dashboard institucional rápido e intuitivo para o *acesso* aos terminais de informática.', img: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=400&auto=format&fit=crop' },
+  { id: 5, title: 'BHFLIX', description: 'Catálogo cinematográfico projetado para a *descoberta* ágil de metadados e informações.', img: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=400&auto=format&fit=crop' },
+  { id: 6, title: 'CLEARPATH', description: 'Aplicativo mobile nativo estruturado em *Swift* com foco absoluto em performance iOS.', img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=400&auto=format&fit=crop' },
 ];
 
 // Componente que faz a animação de onda das letras (Skiper Text Effect)

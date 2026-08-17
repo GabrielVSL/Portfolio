@@ -26,7 +26,7 @@ export default function PhysicsBackground({ active = true, ...props }) {
   const connectors = useMemo(() => shuffle(accent), [accent]);
   
   return (
-    <Canvas onClick={click} shadows dpr={[1, 1.5]} gl={{ antialias: false }} camera={{ position: [0, 0, 15], fov: 17.5, near: 1, far: 20 }} {...props}>
+    <Canvas onClick={click} shadows dpr={[1, 1]} gl={{ antialias: false, powerPreference: "high-performance" }} camera={{ position: [0, 0, 15], fov: 17.5, near: 1, far: 20 }} {...props}>
       <FramePauser active={active} />
       <color attach="background" args={['#F0592A']} />
       <ambientLight intensity={0.4} />
@@ -36,24 +36,21 @@ export default function PhysicsBackground({ active = true, ...props }) {
         <Pointer />
         {connectors.map((props, i) => <Connector key={i} {...props} />)}
         
-        {/* Peça Transparente 1 */}
         <Connector position={[5, 10, 2]}>
           <Model>
-            <MeshTransmissionMaterial clearcoat={1} thickness={0.1} anisotropicBlur={0.1} chromaticAberration={0.1} samples={4} resolution={128} />
+            <MeshTransmissionMaterial clearcoat={1} thickness={0.1} anisotropicBlur={0.1} chromaticAberration={0.1} samples={3} resolution={64} />
           </Model>
         </Connector>
 
-        {/* Peça Transparente 2 */}
         <Connector position={[-5, 10, 2]}>
           <Model>
-            <MeshTransmissionMaterial clearcoat={1} thickness={0.1} anisotropicBlur={0.1} chromaticAberration={0.1} samples={4} resolution={128} />
+            <MeshTransmissionMaterial clearcoat={1} thickness={0.1} anisotropicBlur={0.1} chromaticAberration={0.1} samples={3} resolution={64} />
           </Model>
         </Connector>
       </Physics>
       
       <EffectComposer disableNormalPass multisampling={0}>
-        <N8AO halfRes color="black" aoRadius={2} intensity={1} aoSamples={3} denoiseSamples={2} />
-        <SMAA />
+        <N8AO halfRes color="black" aoRadius={2} intensity={1} aoSamples={2} denoiseSamples={1} />
       </EffectComposer>
       
       <Environment resolution={256}>
@@ -125,3 +122,5 @@ function Model({ children, color = 'white', roughness = 0, ...props }) {
     </mesh>
   )
 }
+
+useGLTF.preload('/c-transformed.glb');

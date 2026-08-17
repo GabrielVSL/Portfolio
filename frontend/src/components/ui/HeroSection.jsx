@@ -9,7 +9,7 @@ export default function HeroSection() {
   const isInView = useInView(ref);
 
   return (
-    <section ref={ref} className="relative w-full h-screen overflow-hidden bg-[#F0592A]">
+    <section id="home" ref={ref} className="relative w-full h-screen overflow-hidden bg-[#F0592A]">
       
       {/* 3D Background - Recebe o status 'active' para congelar cálculos quando não estiver na tela */}
       <div className="absolute inset-0 z-0">

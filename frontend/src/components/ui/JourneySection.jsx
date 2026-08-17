@@ -4,35 +4,35 @@ import { motion, AnimatePresence } from 'framer-motion';
 const journeyData = [
   {
     id: 1,
-    year: "PREVISÃO: JUNHO 2028",
-    role: "ENG. DE SOFTWARE",
-    company: "PUC MINAS",
-    description: "Cursando Engenharia de Software, focando na arquitetura de sistemas escaláveis, desenvolvimento full-stack moderno e boas práticas de qualidade de código.",
-    tech: ["JavaScript", "TypeScript", "React", "Node.js"]
+    year: "JUL. 2026 - ATUALMENTE",
+    role: "ANALISTA DE SISTEMAS",
+    company: "COLÉGIO SÃO PAULO DA CRUZ",
+    description: "Responsável pela modernização da infraestrutura de TI e desenvolvimento de soluções internas do colégio. Criação de aplicações e automação de fluxos com n8n. Administração de servidores (Ubuntu, Docker), Active Directory e bancos de dados (PostgreSQL, MySQL, SQLite).",
+    tech: ["Docker", "Linux", "n8n", "PostgreSQL", "React", "Node.js"]
   },
   {
     id: 2,
     year: "FEV. 2025 - JUN. 2026",
     role: "TÉCNICO DE INFORMÁTICA",
-    company: "Cólegio São Paulo da Cruz",
-    description: "Responsavel pela manutenção de hardware, suporte a usuários, configuração de redes e resolução de problemas técnicos de TI, garantindo a estabilidade de sistemas corporativos, funcinamneto dos computadores em sala de aula e disponibilidade de internet cabeada e via Wifi.",
-    tech: ["Windows Server", "Redes", "Hardware", "Linux"]
+    company: "COLÉGIO SÃO PAULO DA CRUZ",
+    description: "Atuação no suporte técnico a usuários na resolução de problemas de hardware, software e redes. Responsável pela instalação, configuração e manutenção de sistemas, gestão de chamados e garantia da eficiência do parque tecnológico.",
+    tech: ["Windows Server", "Redes", "Hardware", "Suporte"]
   },
   {
     id: 3,
     year: "JUL. 2025 - DEZ. 2025",
-    role: "MONITOR DE DESENVOLVIMENTO DE INTERFACES WEB",
-    company: "Puc Minas",
-    description: "Responsavel por elaborar atividades retirar duvidas online e presencial e auxiliar o professor em duvidas dos alunos.",
-    tech: ["Comunicação", "Atencimento ao cliete", "Resolução de problemas"]
+    role: "MONITOR DE INTERFACES WEB",
+    company: "PUC MINAS",
+    description: "Responsável por auxiliar e sanar dúvidas dos alunos na disciplina de Desenvolvimento de Interfaces Web, fortalecendo as bases de Front-End e arquitetura de interfaces.",
+    tech: ["HTML", "CSS", "JavaScript", "Mentoria"]
   },
   {
     id: 4,
-    year: "JUN. 2026 - ATUALMENTE",
-    role: "ANALISTA DE SISTEMAS",
-    company: "Cólegio São Paulo da Cruz",
-    description: "Responsavel por toda parte Técnica de TI do colegio, abordando atualização de sistemas, formatação e manutenção preventiva de computadores, desenvolviment de aplicações para sanar dores diarias dos funcionarios, automatizando via scripts processos dentro da empresa, administrando Os servidores do colegio + firewall garantindo segurança e estabilidade dentro da instituição.",
-    tech: ["Windows Server", "Redes", "Hardware", "Linux"]
+    year: "JUN. 2024 - PREVISÃO 2028",
+    role: "ENG. DE SOFTWARE",
+    company: "PUC MINAS",
+    description: "Bacharelado em andamento. Foco na interseção entre análise de sistemas e engenharia de software, desenvolvendo forte base em arquitetura de interfaces escaláveis, construção de APIs REST e bancos de dados relacionais.",
+    tech: ["Java", "Spring Boot", "React", "Angular"]
   }
 ];
 
@@ -70,21 +70,21 @@ export default function JourneySection() {
               <div
                 key={item.id}
                 onClick={() => toggleExpand(index)}
-                className="group border-t border-white/10 overflow-hidden cursor-pointer bg-black/10 hover:bg-black/40 transition-colors duration-500 backdrop-blur-sm"
+                className="group border-t border-white/10 overflow-hidden cursor-pointer bg-black/10 hover:bg-black/40 transition-colors duration-500"
               >
-                <div className="py-8 md:py-16 px-4 flex flex-col md:flex-row md:items-center justify-between">
+                <div className="py-8 md:py-16 px-4 flex flex-col md:flex-row md:items-center justify-between gap-6">
                   <h3
-                    className={`font-['Anton'] uppercase transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    className={`font-['Anton'] leading-none uppercase transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                       isExpanded 
-                        ? 'text-3xl md:text-5xl text-[#F0592A]' 
-                        : 'text-5xl md:text-6xl lg:text-8xl text-white group-hover:text-zinc-500'
+                        ? 'text-4xl md:text-5xl text-[#F0592A]' 
+                        : 'text-5xl md:text-6xl lg:text-7xl text-white group-hover:text-zinc-500'
                     }`}
                   >
                     {item.role}
                   </h3>
                   
                   <span 
-                    className={`font-['Inter'] mt-4 md:mt-0 tracking-widest text-xs md:text-sm font-semibold transition-colors duration-500 ${
+                    className={`font-['Inter'] shrink-0 text-right whitespace-nowrap tracking-widest text-xs md:text-sm font-semibold transition-colors duration-500 ${
                       isExpanded ? 'text-[#F0592A]' : 'text-zinc-600 group-hover:text-white'
                     }`}
                   >

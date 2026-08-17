@@ -1,15 +1,19 @@
-import React, { useEffect, useRef } from 'react';
-import { Loader } from '@react-three/drei';
+import React, { useEffect, useRef, Suspense, lazy } from 'react';
 import Lenis from 'lenis';
 import { useScroll } from 'framer-motion';
 
 import HeroSection from './components/ui/HeroSection';
-import AboutSection from './components/ui/AboutSection';
-import ProjectsSection from './components/ui/ProjectsSection';
-import TechSection from './components/ui/TechSection';
-import JourneySection from './components/ui/JourneySection';
-import ContactSection from './components/ui/ContactSection';
 import ScrollStroke from './components/ui/ScrollStroke';
+import { CursorProvider } from './contexts/CursorContext';
+import GlobalCursor from './components/ui/GlobalCursor';
+
+const AboutSection = lazy(() => import('./components/ui/AboutSection'));
+const ProjectsSection = lazy(() => import('./components/ui/ProjectsSection'));
+const TechSection = lazy(() => import('./components/ui/TechSection'));
+const JourneySection = lazy(() => import('./components/ui/JourneySection'));
+const ContactSection = lazy(() => import('./components/ui/ContactSection'));
+import BrutalistLoader from './components/ui/BrutalistLoader';
+
 
 export default function App() {
   const scrollTrackerRef = useRef(null);
@@ -41,9 +45,12 @@ export default function App() {
   }, []);
 
   return (
-    <div className="w-full bg-[#111] font-['Inter'] selection:bg-black selection:text-white">
-      
-      {/* 1. Hero */}
+    <CursorProvider>
+      <div className="w-full bg-[#111] font-['Inter'] selection:bg-black selection:text-white cursor-none">
+        
+        <GlobalCursor />
+
+        {/* 1. Hero */}
       <HeroSection />
 
       {/* WRAPPER GLOBAL PARA O SCROLL DA LINHA */}
@@ -53,29 +60,27 @@ export default function App() {
         <ScrollStroke scrollYProgress={scrollYProgress} />
 
         {/* 2. Sobre Mim (Manifesto) */}
-        <AboutSection />
+        <Suspense fallback={null}>
+          <AboutSection />
+          
+          {/* 3. Projetos (Skiper6 Hover Reveal) */}
+          <ProjectsSection />
 
-        {/* 3. Projetos (Skiper6 Hover Reveal) */}
-        <ProjectsSection />
+          {/* 4. Tech Stack (Parede Tipográfica Brutalista) */}
+          <TechSection />
 
-        {/* 4. Tech Stack (Parede Tipográfica Brutalista) */}
-        <TechSection />
+          {/* 5. Trajetória (O Monolito Acordeão) */}
+          <JourneySection />
 
-        {/* 5. Trajetória (O Monolito Acordeão) */}
-        <JourneySection />
-
-        {/* 6. Grand Finale (Contato e Rodapé) */}
-        <ContactSection />
+          {/* 6. Grand Finale (Contato e Rodapé) */}
+          <ContactSection />
+        </Suspense>
 
       </div>
 
-      {/* Tela de Loading elegante padrão do Drei */}
-      <Loader 
-        containerStyles={{ background: '#F0592A', zIndex: 9999 }} 
-        innerStyles={{ width: '300px' }} 
-        barStyles={{ background: '#ffffff', height: '4px' }} 
-        dataStyles={{ color: '#ffffff', fontSize: '14px', fontFamily: 'Inter' }} 
-      />
+      {/* Tela de Loading Gigante */}
+      <BrutalistLoader />
     </div>
+    </CursorProvider>
   );
 }

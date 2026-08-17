@@ -5,8 +5,8 @@ import { useLanguage } from '../../contexts/LanguageContext';
 
 const navItems = [
   { id: 'home', pt: 'Home', en: 'Home' },
-  { id: 'sobre', pt: 'Sobre', en: 'About' },
-  { id: 'projetos', pt: 'Projetos', en: 'Work' },
+  { id: 'studio', pt: 'Sobre', en: 'About' },
+  { id: 'work', pt: 'Projetos', en: 'Work' },
   { id: 'tech', pt: 'Tecnologias', en: 'Tech' },
   { id: 'experiencias', pt: 'Trajetória', en: 'Journey' },
   { id: 'contato', pt: 'Contato', en: 'Contact' }
@@ -67,7 +67,7 @@ export default function Navbar() {
   const isMuted = !isPlaying || volume === 0;
   const showLowWave = isPlaying && volume > 0;
   const showHighWave = isPlaying && volume > 0.5;
-  const glowStyle = "drop-shadow-[0_0_8px_rgba(0,119,255,0.6)]";
+  const glowStyle = "drop-shadow-[0_0_8px_rgba(240,89,42,0.6)]";
   // -------------------------------------------------------------
 
   // --- LÓGICA DO SCROLL SPY ---
@@ -113,7 +113,7 @@ export default function Navbar() {
         
         {/* LADO ESQUERDO: Logo */}
         <div onClick={() => scrollToSection('home')} className="cursor-pointer group flex items-center gap-3">
-          <div className="w-2 h-2 bg-[#0077ff] rounded-full group-hover:shadow-[0_0_12px_#00e5ff] transition-shadow"></div>
+          <div className="w-2 h-2 bg-[#F0592A] rounded-full group-hover:shadow-[0_0_12px_#ffffff] transition-shadow"></div>
           <span className="text-white font-bold tracking-[0.3em] uppercase text-[10px] md:text-xs">G.LOPES</span>
         </div>
 
@@ -132,7 +132,7 @@ export default function Navbar() {
                 {isActive && (
                   <motion.div
                     layoutId="nav-pill"
-                    className="absolute inset-0 bg-[#0077ff]/10 border border-[#0077ff]/30 rounded-full"
+                    className="absolute inset-0 bg-[#F0592A]/20 border border-[#F0592A]/50 rounded-full"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
@@ -147,7 +147,7 @@ export default function Navbar() {
           
           <button 
             onClick={toggleLang}
-            className="text-[9px] font-bold tracking-[0.3em] uppercase px-3 py-1.5 border border-white/10 rounded-md hover:bg-white/5 hover:text-[#00e5ff] transition-all text-zinc-400"
+            className="text-[9px] font-bold tracking-[0.3em] uppercase px-3 py-1.5 border border-white/10 rounded-md hover:bg-[#F0592A]/20 hover:text-white transition-all text-zinc-400"
           >
             {lang === 'pt' ? 'PT' : 'EN'}
           </button>
@@ -164,7 +164,7 @@ export default function Navbar() {
               step="0.01" 
               value={volume}
               onChange={(e) => setVolume(parseFloat(e.target.value))}
-              className="w-16 h-[2px] bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-[#0077ff]"
+              className="w-16 h-[2px] bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-[#F0592A]"
             />
           </div>
 
@@ -172,7 +172,7 @@ export default function Navbar() {
           <button 
             onClick={toggleSound}
             className={`flex items-center justify-center cursor-pointer p-2 transition-all duration-300 ${
-              !isMuted ? `text-[#00e5ff] ${glowStyle}` : `text-zinc-500 group-hover:text-[#0077ff] group-hover:${glowStyle}`
+              !isMuted ? `text-[#F0592A] ${glowStyle}` : `text-zinc-500 group-hover:text-white group-hover:${glowStyle}`
             }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
