@@ -3,68 +3,55 @@
 @tailwind components;
 @tailwind utilities;
 
-/* =========================================
-   CUSTOM SCROLLBAR - ESTILO DARK TECH
-   ========================================= */
+/* =========================================================
+   DESIGN SYSTEM TOKENS — ANTIGRAVITY & ARCHITECTURAL GRAPH
+   ========================================================= */
+:root {
+  --bg-void: #0a0b0f;
+  --bg-deep: #0d0e13;
+  --accent-blue: #3279f9;
+  --accent-sky: #749bff;
+  --accent-cyan: #5ce1e6;
+  --accent-purple: #c77dff;
+  --border-subtle: rgba(230, 234, 240, 0.08);
+  --text-primary: #f8f9fc;
+  --text-secondary: #b2bbc5;
+  --text-muted: #6a6d78;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
 
-/* Firefox (Suporte básico) */
+html, body {
+  background-color: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   CUSTOM SCROLLBAR - MINIMALISTA
+   ========================================= */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #3f3f46 transparent;
-  cursor: none !important;
+  scrollbar-color: rgba(183, 191, 217, 0.2) transparent;
 }
 
-/* Chrome, Edge e Safari (Suporte avançado) */
-
-/* 1. Largura da barra inteira */
 ::-webkit-scrollbar {
-  width: 6px; /* Bem fina e elegante */
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
-/* 2. O trilho (fundo por onde a barra corre) */
 ::-webkit-scrollbar-track {
-  background: transparent; /* Deixa transparente para mostrar as estrelas do fundo */
-  border-radius: 10px;
+  background: transparent;
 }
 
-/* 3. A barra arrastável (Thumb) */
 ::-webkit-scrollbar-thumb {
-  background: #3f3f46; /* Cor zinc-700 (cinza chumbo discreto) */
-  border-radius: 10px;
+  background: rgba(183, 191, 217, 0.2);
+  border-radius: 9999px;
 }
 
-/* 4. A barra quando você passa o mouse por cima */
 ::-webkit-scrollbar-thumb:hover {
-  background: #0077ff; /* Acende com o nosso Azul Cobalto da Navbar! */
-  /* Se você quiser o azul mais claro, pode trocar por #00e5ff */
-}
-
-/* =========================================
-   CORREÇÃO DO AUTOCOMPLETE (Fundo Branco)
-   ========================================= */
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus {
-  /* Mantém a cor do texto clara (zinc-300) */
-  -webkit-text-fill-color: #d4d4d8 !important; 
-  
-  /* Cria uma sombra interna gigante de cor escura para "engolir" o branco do navegador */
-  -webkit-box-shadow: 0 0 0px 1000px #0a0a0a inset !important; 
-  
-  /* Trava qualquer outra mudança de cor de fundo que o navegador tente fazer */
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-
-/* =========================================
-   WAKATIME BADGE - ESTILO DARK TECH
-   ========================================= */
-
-@keyframes expandWidth {
-  from { width: 0; }
+  background: rgba(116, 155, 255, 0.5);
 }

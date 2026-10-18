@@ -1,31 +1,29 @@
-import React, { useEffect, useRef, Suspense, lazy } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import { useScroll } from 'framer-motion';
 
-import HeroSection from './components/ui/HeroSection';
+import Navbar from './components/ui/Navbar';
 import ScrollStroke from './components/ui/ScrollStroke';
-import { CursorProvider } from './contexts/CursorContext';
-import GlobalCursor from './components/ui/GlobalCursor';
+import BreathingGridBackground from './components/ui/BreathingGridBackground';
 
-const AboutSection = lazy(() => import('./components/ui/AboutSection'));
-const ProjectsSection = lazy(() => import('./components/ui/ProjectsSection'));
-const TechSection = lazy(() => import('./components/ui/TechSection'));
-const JourneySection = lazy(() => import('./components/ui/JourneySection'));
-const ContactSection = lazy(() => import('./components/ui/ContactSection'));
-import BrutalistLoader from './components/ui/BrutalistLoader';
-
+import HeroSection from './components/sections/HeroSection';
+import AboutSection from './components/sections/AboutSection';
+import ProjectsSection from './components/sections/ProjectsSection';
+import TechSection from './components/sections/TechSection';
+import JourneySection from './components/sections/JourneySection';
+import ContactSection from './components/sections/ContactSection';
 
 export default function App() {
   const scrollTrackerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: scrollTrackerRef,
-    offset: ["start end", "end end"]
+    offset: ['start end', 'end end'],
   });
+
   useEffect(() => {
-    // Inicializar o Lenis para scroll suave
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+      duration: 1.15,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
@@ -33,54 +31,36 @@ export default function App() {
       smoothTouch: false,
     });
 
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      if (rafId) cancelAnimationFrame(rafId);
       lenis.destroy();
     };
   }, []);
 
   return (
-    <CursorProvider>
-      <div className="w-full bg-[#111] font-['Inter'] selection:bg-black selection:text-white cursor-none">
-        
-        <GlobalCursor />
+    <div className="w-full bg-[#0a0b0f] text-[#f8f9fc] font-['Inter'] selection:bg-[#3279f9] selection:text-white">
+      <Navbar />
 
-        {/* 1. Hero */}
       <HeroSection />
 
-      {/* WRAPPER GLOBAL PARA O SCROLL DA LINHA */}
-      <div ref={scrollTrackerRef} className="relative w-full">
-        
-        {/* A LINHA CAÓTICA EM BACKGROUND/OVERLAY */}
+      <div ref={scrollTrackerRef} className="relative w-full overflow-hidden">
+        {/* Grade Pontilhada Arquitetônica com Efeito de Respiro (Estilo teamworkgraph.com) */}
+        <BreathingGridBackground />
+
         <ScrollStroke scrollYProgress={scrollYProgress} />
-
-        {/* 2. Sobre Mim (Manifesto) */}
-        <Suspense fallback={null}>
-          <AboutSection />
-          
-          {/* 3. Projetos (Skiper6 Hover Reveal) */}
-          <ProjectsSection />
-
-          {/* 4. Tech Stack (Parede Tipográfica Brutalista) */}
-          <TechSection />
-
-          {/* 5. Trajetória (O Monolito Acordeão) */}
-          <JourneySection />
-
-          {/* 6. Grand Finale (Contato e Rodapé) */}
-          <ContactSection />
-        </Suspense>
-
+        <AboutSection />
+        <ProjectsSection />
+        <TechSection />
+        <JourneySection />
+        <ContactSection />
       </div>
-
-      {/* Tela de Loading Gigante */}
-      <BrutalistLoader />
     </div>
-    </CursorProvider>
   );
 }
