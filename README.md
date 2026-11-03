@@ -32,7 +32,7 @@ Este repositório contém o código-fonte do meu portfólio profissional. Mais d
 
 | # | Projeto | Categoria | Stack Principal | Links |
 | :-: | :--- | :--- | :--- | :--- |
-| **01** | **Orderly** | Full Stack · Arquitetura REST | `React` `Node.js` `Express` `PostgreSQL` `Sequelize` | [🌐 Live Demo](https://orderly-online.vercel.app/) · [💻 GitHub](https://github.com/GabrielVSL/Orderly) |
+| **01** | **Orderly — Patties Burger Direct** | Em Produção · E-Commerce D2C & Food Tracker | `React` `Node.js` `Express` `PostgreSQL` `Sequelize` | [🌐 Live Demo](https://orderly-online.vercel.app/) · [💻 GitHub](https://github.com/GabrielVSL/Orderly) |
 | **02** | **Portal Educacional CSPC** | Em Produção · **-30% Chamados** | `React` `JavaScript` `Tailwind CSS` `Dynamic JSON` | [🌐 Live Demo](https://jogos-cspc.vercel.app) · [💻 GitHub](https://github.com/GabrielVSL/InformaticaCSPC) |
 | **03** | **BHFlix** | Frontend & Serverless BFF | `React` `Vite` `Tailwind CSS` `Vercel Serverless` | [🌐 Live Demo](https://bhflix.vercel.app) · [💻 GitHub](https://github.com/GabrielVSL/BHFlix) |
 | **04** | **ClearPath** | Mobile Nativo · Ecossistema Apple | `Swift` `SwiftUI` `iOS` | [💻 GitHub](https://github.com/GabrielVSL/ClearPath) |

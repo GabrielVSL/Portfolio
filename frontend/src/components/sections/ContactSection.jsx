@@ -557,7 +557,7 @@ export default function ContactSection() {
       outputNode = (
         <div className="my-1.5 text-[#d2d7e0] space-y-0.5">
           <div>
-            <span className="text-[#5ce1e6]">01. Orderly</span>      — SaaS Monorepo (React, TypeScript, Node.js, PostgreSQL, Docker)
+            <span className="text-[#5ce1e6]">01. Orderly</span>      — Patties Direct D2C &amp; Food Tracker (React, Node.js, PostgreSQL, ACID)
           </div>
           <div>
             <span className="text-[#5ce1e6]">02. Portal CSPC</span>  — Institutional EdTech Platform (-30% support tickets in production)
