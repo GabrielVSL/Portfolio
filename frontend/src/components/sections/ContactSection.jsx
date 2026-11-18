@@ -557,19 +557,19 @@ export default function ContactSection() {
       outputNode = (
         <div className="my-1.5 text-[#d2d7e0] space-y-0.5">
           <div>
-            <span className="text-[#5ce1e6]">01. Orderly</span>      — Patties Direct D2C &amp; Food Tracker (React, Node.js, PostgreSQL, ACID)
+            <span className="text-[#5ce1e6]">01. ApexExperience</span> — Supercar Track Days (Java 21, Micronaut, React 19, JWT)
           </div>
           <div>
-            <span className="text-[#5ce1e6]">02. Portal CSPC</span>  — Institutional EdTech Platform (-30% support tickets in production)
+            <span className="text-[#5ce1e6]">02. Lumière</span>        — Classic Cinema Streaming &amp; ETL (FastAPI, Python, React 19)
           </div>
           <div>
-            <span className="text-[#5ce1e6]">03. BHFlix</span>       — Streaming Catalog &amp; Discovery Engine (React, REST APIs)
+            <span className="text-[#5ce1e6]">03. Patties Burger</span> — D2C Smash Burger &amp; Food Tracker (Node.js, React, ACID)
           </div>
           <div>
-            <span className="text-[#5ce1e6]">04. ClearPath</span>    — Intelligent Task &amp; Workflow Manager
+            <span className="text-[#5ce1e6]">04. Portal CSPC</span>    — Institutional EdTech Platform (-30% support tickets)
           </div>
           <div>
-            <span className="text-[#749bff]">+ Repos:</span> RentCars (Java/Spring), Educoins (Merit System), Threads Sync, GSA
+            <span className="text-[#749bff]">+ Repos:</span> Smart-Budget-Spring-AI, Checkout-Design-Patterns, ClearPath (Swift), Threads Sync (Go)
           </div>
         </div>
       );
@@ -577,13 +577,13 @@ export default function ContactSection() {
       outputNode = (
         <div className="my-1.5 text-[#d2d7e0] space-y-0.5">
           <div>
-            <span className="text-[#5ce1e6]">frontend :</span> React, TypeScript, JavaScript (ES6+), Tailwind CSS, HTML5/CSS3
+            <span className="text-[#5ce1e6]">frontend :</span> React 19, TypeScript, JavaScript (ES6+), Tailwind CSS, GSAP
           </div>
           <div>
-            <span className="text-[#5ce1e6]">backend  :</span> Node.js, Java (Spring Boot), C# (.NET), Swift, REST APIs
+            <span className="text-[#5ce1e6]">backend  :</span> Java 21 (Spring Boot / Micronaut), Python (FastAPI), Node.js, C#, Swift
           </div>
           <div>
-            <span className="text-[#5ce1e6]">data/ops :</span> PostgreSQL, MySQL, Prisma, Docker, Git, Linux
+            <span className="text-[#5ce1e6]">data/ops :</span> PostgreSQL, SQLAlchemy, Hibernate, Docker, Git, Linux
           </div>
         </div>
       );

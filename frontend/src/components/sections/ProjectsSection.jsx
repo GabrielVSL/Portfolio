@@ -4,9 +4,8 @@ import {
   FiExternalLink,
   FiArrowUpRight,
   FiLayers,
-  FiCpu,
-  FiDatabase,
-  FiSmartphone,
+  FiActivity,
+  FiFilm,
   FiCheckCircle,
   FiShoppingBag,
 } from 'react-icons/fi';
@@ -14,36 +13,128 @@ import { useLanguage } from '../../contexts/LanguageContext';
 
 const featuredProjects = [
   {
-    id: 'orderly',
+    id: 'apex',
     index: '01',
-    icon: FiShoppingBag,
-    tabTitle: 'Orderly',
-    tabSubPt: 'Em Produção · Patties Direct',
-    tabSubEn: 'In Production · Patties Direct',
-    badgePt: 'PRODUÇÃO · E-COMMERCE D2C & FOOD TRACKER',
-    badgeEn: 'PRODUCTION · D2C E-COMMERCE & FOOD TRACKER',
-    title: 'Orderly — Patties Burger Direct',
-    urlDisplay: 'orderly-online.vercel.app',
+    icon: FiActivity,
+    tabTitle: 'ApexExperience',
+    tabSubPt: 'Em Produção · Java & React',
+    tabSubEn: 'In Production · Java & React',
+    badgePt: 'PRODUÇÃO · JAVA 21, MICRONAUT & JWT',
+    badgeEn: 'PRODUCTION · JAVA 21, MICRONAUT & JWT',
+    title: 'Apex Track Experience',
+    urlDisplay: 'apex-experience.vercel.app',
     accentColor: '#dc2626',
-    accentLine: '#f59e0b',
+    accentLine: '#f87171',
     descriptionPt:
-      'Plataforma digital Direct-to-Consumer completa conceituada para o Patties Burger, implantada em produção (Vercel, Render e Neon Postgres). Construída com arquitetura desacoplada, conta com autenticação e isolamento seguro de sessão multiusuário (x-session-id), checkout transacional atômico com garantias ACID e Snapshot Pattern, mensageria reativa com toasts e acompanhamento de pedidos em tempo real (Food Tracker com mapa de rotas e stepper).',
+      'Plataforma full-stack para reserva de supercarros em 8 circuitos oficiais FIA, implantada em produção. Backend em Java 21 e Micronaut com arquitetura em Facades, autenticação JWT stateless (RBAC), carteira digital integrada (ApexPay), E-Pass QR assinado com HMAC-SHA256, controle otimista de vagas (@Version) e mensageria transacional via Resend API.',
     descriptionEn:
-      'Full Direct-to-Consumer digital platform conceptualized for Patties Burger, deployed in production (Vercel, Render & Neon Postgres). Engineered with decoupled architecture featuring secure multi-user session isolation (x-session-id), atomic transactional checkout with ACID guarantees and Snapshot Pattern, reactive messaging with toasts, and real-time Food Tracker with dynamic route mapping and order stepper.',
+      'Full-stack platform for booking supercars across 8 official FIA circuits, deployed in production. Built with a Java 21 & Micronaut backend using Facade architecture, stateless JWT authentication (RBAC), integrated digital wallet (ApexPay), HMAC-SHA256 signed E-Pass QR, optimistic concurrency control (@Version), and transactional messaging via Resend API.',
     architectureNodes: [
-      { role: 'Frontend UI', value: 'React 19 + Framer Motion' },
-      { role: 'API & Sessão', value: 'Node.js + UUID Interceptor' },
-      { role: 'Transacional', value: 'Sequelize ACID + Neon Postgres' },
+      { role: 'UI', value: 'React 19 + TS' },
+      { role: 'API', value: 'Java 21 + Micronaut' },
+      { role: 'Auth', value: 'JWT + HMAC QR' },
     ],
     highlightsPt: [
-      'Isolamento estrito de sessão multiusuário via interceptor de cabeçalho (x-session-id), blindando carrinhos e comandas concorrentes com zero vazamento de dados.',
-      'Checkout atômico com garantias ACID e Snapshot Pattern no PostgreSQL: congelamento histórico de preços e rollback automático em falhas.',
-      'Food Tracker dinâmico em tempo real com stepper de 5 etapas (do caixa à entrega), mapa com rota ao vivo, mensageria de status e motor de cupons.',
+      'Autenticação JWT stateless com RBAC (Piloto / Diretor de Prova), E-Pass QR assinado com HMAC-SHA256 e mensageria OTP/e-mail via Resend API.',
+      'Prevenção de overbooking com controle otimista (@Version) por circuito e turno, fila assíncrona (@Scheduled) e carteira digital ApexPay.',
+      'Frontend em React 19, TypeScript, Zustand, Leaflet e Recharts com suítes automatizadas em JUnit 5, Mockito e Vitest.',
     ],
     highlightsEn: [
-      'Secure multi-user session isolation via Axios header interceptor (x-session-id), strictly preventing data bleeding across concurrent carts.',
-      'Atomic transactional checkout with ACID guarantees and Snapshot Pattern in PostgreSQL: historic price freeze and automatic rollback on failure.',
-      'Dynamic real-time Food Tracker featuring a 5-stage stepper (register to delivery), live route mapping, status messaging, and coupon engine.',
+      'Stateless JWT auth with RBAC (Pilot / Race Director), HMAC-SHA256 signed E-Pass QR check-in, and transactional OTP/email messaging via Resend API.',
+      'Overbooking prevention using optimistic locking (@Version) per circuit/slot, scheduled async queues, and ApexPay digital wallet.',
+      'React 19, TypeScript, Zustand, Leaflet, and Recharts frontend backed by automated JUnit 5, Mockito, and Vitest suites.',
+    ],
+    stack: [
+      { name: 'Java 21', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
+      { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
+      { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+      { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+      { name: 'Hibernate JPA', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hibernate/hibernate-original.svg' },
+      { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+    ],
+    video: null,
+    image: '/apex-preview.jpg',
+    poster: '/apex-preview.jpg',
+    liveUrl: 'https://apex-experience.vercel.app/',
+    repoUrl: 'https://github.com/GabrielVSL/ApexExperience',
+  },
+  {
+    id: 'lumiere',
+    index: '02',
+    icon: FiFilm,
+    tabTitle: 'Lumière',
+    tabSubPt: 'Streaming · FastAPI & React',
+    tabSubEn: 'Streaming · FastAPI & React',
+    badgePt: 'PRODUÇÃO · STREAMING, ETL & PYTHON ASYNC',
+    badgeEn: 'PRODUCTION · STREAMING, ETL & PYTHON ASYNC',
+    title: 'Lumière — Cinema Clássico',
+    urlDisplay: 'olumiere.vercel.app',
+    accentColor: '#d97706',
+    accentLine: '#fbbf24',
+    descriptionPt:
+      'Plataforma editorial de streaming dedicada à preservação de mais de 600 obras clássicas em domínio público (1895–1955). Combina FastAPI assíncrono e SQLAlchemy 2.0 Async com pipeline ETL multi-fonte (Wikidata SPARQL, Internet Archive e TMDB), motor determinístico de auditoria autoral (LicenseEngine) e player HTML5 nativo com HTTP 206 Range Requests e legendas WebVTT.',
+    descriptionEn:
+      'Editorial streaming platform preserving 600+ classic public-domain films (1895–1955). Combines asynchronous FastAPI and SQLAlchemy 2.0 Async with a multi-source ETL pipeline (Wikidata SPARQL, Internet Archive & TMDB), deterministic copyright jurisdiction engine (LicenseEngine), and native HTML5 player with HTTP 206 Range Requests and custom WebVTT subtitles.',
+    architectureNodes: [
+      { role: 'UI', value: 'React 19 + GSAP' },
+      { role: 'API', value: 'FastAPI Async' },
+      { role: 'Motor', value: 'ETL + LicenseEngine' },
+    ],
+    highlightsPt: [
+      'Motor determinístico de direitos autorais (LicenseEngine) validando regras do Brasil (Lei 9.610/98), EUA e União Europeia em tempo real.',
+      'Streaming nativo sem anúncios via HTTP 206 Partial Content, troca dinâmica de resolução, proxy de legendas WebVTT e proteções OWASP/SSRF.',
+      'Pipeline ETL assíncrono integrando Wikidata SPARQL, Internet Archive e TMDB, com camada de contingência offline-first no frontend e testes Pytest.',
+    ],
+    highlightsEn: [
+      'Deterministic copyright audit engine (LicenseEngine) evaluating Brazilian (Law 9.610/98), US, and EU public-domain rules in real time.',
+      'Ad-free native streaming via HTTP 206 Partial Content, dynamic resolution switching, WebVTT subtitle proxy, and OWASP/SSRF guards.',
+      'Asynchronous ETL pipeline integrating Wikidata SPARQL, Internet Archive & TMDB, backed by offline-first frontend fallback and Pytest.',
+    ],
+    stack: [
+      { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+      { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
+      { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
+      { name: 'FastAPI', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' },
+      { name: 'SQLAlchemy', icon: 'https://cdn.simpleicons.org/sqlalchemy/ffffff' },
+      { name: 'GSAP', icon: 'https://cdn.simpleicons.org/greensock/88CE02' },
+    ],
+    video: null,
+    image: '/lumiere-preview.jpg',
+    poster: '/lumiere-preview.jpg',
+    liveUrl: 'https://olumiere.vercel.app',
+    repoUrl: 'https://github.com/GabrielVSL/Lumiere',
+  },
+  {
+    id: 'patties',
+    index: '03',
+    icon: FiShoppingBag,
+    tabTitle: 'Patties Burger',
+    tabSubPt: 'Em Produção · Node & React',
+    tabSubEn: 'In Production · Node & React',
+    badgePt: 'PRODUÇÃO · D2C, JWT & FOOD TRACKER',
+    badgeEn: 'PRODUCTION · D2C, JWT & FOOD TRACKER',
+    title: 'Patties Burger Direct (Orderly)',
+    urlDisplay: 'burger-patties.vercel.app',
+    accentColor: '#b91c1c',
+    accentLine: '#f59e0b',
+    descriptionPt:
+      'Plataforma digital Direct-to-Consumer completa para pedidos de smash burgers, implantada em produção (Vercel, Render e Neon Postgres). Conta com autenticação JWT (bcryptjs), isolamento de sessão multiusuário (x-session-id), checkout atômico com transações ACID e Snapshot Pattern, mensageria via Resend API, proteção Helmet/Rate Limit e Food Tracker ao vivo com mapa Leaflet.',
+    descriptionEn:
+      'Full Direct-to-Consumer smash burger ordering platform deployed in production (Vercel, Render & Neon Postgres). Features JWT authentication (bcryptjs), multi-user session isolation (x-session-id), atomic ACID transactional checkout with Snapshot Pattern, Resend API messaging, Helmet/Rate Limit security, and a live Leaflet Food Tracker.',
+    architectureNodes: [
+      { role: 'UI', value: 'React + Leaflet' },
+      { role: 'Auth', value: 'JWT + Helmet' },
+      { role: 'Dados', value: 'ACID + PostgreSQL' },
+    ],
+    highlightsPt: [
+      'Segurança ponta a ponta: autenticação JWT com bcryptjs, Helmet, Express Rate Limit e isolamento de sessão via header x-session-id.',
+      'Checkout atômico ACID com Snapshot Pattern via Sequelize, motor de cupons server-side e mensageria transacional via Resend (cadastro e reset).',
+      'Food Tracker interativo em tempo real com mapa de rotas (Leaflet), stepper de 5 etapas e suíte de testes automatizados (Jest + Supertest).',
+    ],
+    highlightsEn: [
+      'End-to-end security: JWT auth with bcryptjs, Helmet, Express Rate Limit, and session isolation via x-session-id interceptor.',
+      'Atomic ACID checkout with Snapshot Pattern via Sequelize, server-side coupon validation, and transactional emails via Resend.',
+      'Interactive real-time Food Tracker with Leaflet route mapping, 5-stage order stepper, and automated Jest + Supertest suites.',
     ],
     stack: [
       { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
@@ -51,16 +142,17 @@ const featuredProjects = [
       { name: 'Express', icon: 'https://cdn.simpleicons.org/express/ffffff' },
       { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
       { name: 'Sequelize', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sequelize/sequelize-original.svg' },
-      { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+      { name: 'Resend', icon: 'https://cdn.simpleicons.org/resend/ffffff' },
     ],
     video: '/orderly.mp4',
     poster: '/orderly-poster.jpg',
-    liveUrl: 'https://orderly-online.vercel.app/',
-    repoUrl: 'https://github.com/GabrielVSL/Orderly',
+    image: '/orderly-poster.jpg',
+    liveUrl: 'https://burger-patties.vercel.app/',
+    repoUrl: 'https://github.com/GabrielVSL/PettiesBurger',
   },
   {
     id: 'cspc',
-    index: '02',
+    index: '04',
     icon: FiCheckCircle,
     tabTitle: 'Portal CSPC',
     tabSubPt: 'Em Produção · -30% Chamados',
@@ -72,158 +164,74 @@ const featuredProjects = [
     accentColor: '#0284c7',
     accentLine: '#38bdf8',
     descriptionPt:
-      'Plataforma interativa implantada nos laboratórios do Colégio São Paulo da Cruz. Construída com uma arquitetura orientada a JSON dinâmico que permite atualizar atividades e links pedagógicos sem alterar código-fonte, reduzindo em 30% os chamados técnicos operacionais.',
+      'Plataforma interativa implantada nos laboratórios do Colégio São Paulo da Cruz. Construída com uma arquitetura orientada a JSON dinâmico que permite atualizar atividades, quizzes e links pedagógicos sem alterar código-fonte, reduzindo em 30% os chamados técnicos operacionais.',
     descriptionEn:
-      'Interactive platform deployed across computer labs at Colégio São Paulo da Cruz. Built with a dynamic JSON-driven architecture that allows updating educational activities without touching source code, reducing operational support tickets by 30%.',
+      'Interactive platform deployed across computer labs at Colégio São Paulo da Cruz. Built with a dynamic JSON-driven architecture that allows updating educational activities, quizzes, and links without touching source code, reducing operational support tickets by 30%.',
     architectureNodes: [
-      { role: 'Interface', value: 'React + Tailwind CSS' },
-      { role: 'Motor de Dados', value: 'Dynamic JSON Schema' },
-      { role: 'Resultado', value: '-30% Chamados TI' },
+      { role: 'UI', value: 'HTML5 + CSS3 + JS' },
+      { role: 'Dados', value: 'Dynamic JSON' },
+      { role: 'Impacto', value: '-30% Chamados TI' },
     ],
     highlightsPt: [
       'Redução comprovada de 30% no volume de chamados técnicos durante as aulas de laboratório.',
-      'Arquitetura desacoplada por JSON: novos conteúdos entram no ar em segundos sem redeploy complexo.',
+      'Arquitetura desacoplada por JSON (jogos.json): novos conteúdos e quizzes entram no ar em segundos sem redeploy complexo.',
       'Interface de alta legibilidade e zero fricção em uso diário por estudantes e professores.',
     ],
     highlightsEn: [
       'Proven 30% reduction in technical support tickets during computer lab classes.',
-      'JSON-decoupled architecture: new content goes live in seconds without complex code changes.',
+      'JSON-decoupled architecture (jogos.json): new educational games and quizzes go live in seconds without complex code changes.',
       'High-legibility, zero-friction UI used daily by students and teachers.',
     ],
     stack: [
-      { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
       { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
-      { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+      { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
+      { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
       { name: 'Vercel', icon: 'https://cdn.simpleicons.org/vercel/ffffff' },
     ],
     video: '/cspc.mp4',
     poster: '/cspc-poster.jpg',
+    image: '/cspc-poster.jpg',
     liveUrl: 'https://jogos-cspc.vercel.app',
     repoUrl: 'https://github.com/GabrielVSL/InformaticaCSPC',
-  },
-  {
-    id: 'bhflix',
-    index: '03',
-    icon: FiCpu,
-    tabTitle: 'BHFlix',
-    tabSubPt: 'Frontend & BFF Serverless',
-    tabSubEn: 'Frontend & Serverless BFF',
-    badgePt: 'ARQUITETURA BFF & PERFORMANCE',
-    badgeEn: 'BFF ARCHITECTURE & PERFORMANCE',
-    title: 'BHFlix — Streaming & Catálogo BFF',
-    urlDisplay: 'bhflix.vercel.app',
-    accentColor: '#4f46e5',
-    accentLine: '#818cf8',
-    descriptionPt:
-      'Catálogo de mídia com foco em segurança de API e experiência fluida. Utiliza uma camada Backend-for-Frontend (BFF) Serverless na Vercel para mascarar chaves sensíveis da API TMDB, busca em tempo real otimizada com Debounce e persistência local.',
-    descriptionEn:
-      'Media catalog focused on API security and fluid UX. Uses a Serverless Backend-for-Frontend (BFF) layer on Vercel to mask sensitive TMDB API keys, Debounce-optimized real-time search, and local persistence.',
-    architectureNodes: [
-      { role: 'Cliente Web', value: 'React + Vite + Debounce' },
-      { role: 'Camada BFF', value: 'Vercel Serverless Proxy' },
-      { role: 'Persistência', value: 'LocalStorage + TMDB API' },
-    ],
-    highlightsPt: [
-      'Proteção completa de credenciais no servidor via arquitetura BFF (Backend-for-Frontend).',
-      'Controle de concorrência e economia de requisições na busca com algoritmo de Debounce.',
-      'Gerenciamento de estado "Minha Lista" persistido localmente com resposta imediata.',
-    ],
-    highlightsEn: [
-      'Complete server-side credential protection via Backend-for-Frontend (BFF) architecture.',
-      'Request throttling and concurrency control in search using Debounce.',
-      'Locally persisted Watchlist state management with instant UI feedback.',
-    ],
-    stack: [
-      { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
-      { name: 'Vite', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg' },
-      { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
-      { name: 'Vercel Serverless', icon: 'https://cdn.simpleicons.org/vercel/ffffff' },
-    ],
-    video: '/bhflix.mp4',
-    poster: '/bhflix-poster.jpg',
-    liveUrl: 'https://bhflix.vercel.app',
-    repoUrl: 'https://github.com/GabrielVSL/BHFlix',
-  },
-  {
-    id: 'clearpath',
-    index: '04',
-    icon: FiSmartphone,
-    tabTitle: 'ClearPath',
-    tabSubPt: 'Mobile Nativo · Swift & iOS',
-    tabSubEn: 'Native Mobile · Swift & iOS',
-    badgePt: 'ECOSSISTEMA APPLE NATIVO',
-    badgeEn: 'NATIVE APPLE ECOSYSTEM',
-    title: 'ClearPath — App Nativo iOS',
-    urlDisplay: 'github.com/GabrielVSL/ClearPath',
-    accentColor: '#7c3aed',
-    accentLine: '#a78bfa',
-    descriptionPt:
-      'Aplicação mobile nativa para iOS construída com Swift e SwiftUI. Projetada para entregar transições nativas a 60fps, arquitetura declarativa limpa e total aderência às Human Interface Guidelines da Apple.',
-    descriptionEn:
-      'Native iOS mobile application built with Swift and SwiftUI. Engineered to deliver 60fps native transitions, clean declarative architecture, and strict adherence to Apple Human Interface Guidelines.',
-    architectureNodes: [
-      { role: 'UI Nativa', value: 'SwiftUI Declarativo' },
-      { role: 'Linguagem', value: 'Swift (Tipagem Forte)' },
-      { role: 'Plataforma', value: 'iOS Apple HIG' },
-    ],
-    highlightsPt: [
-      'Construído 100% em Swift e SwiftUI nativo, sem camadas de ponte híbrida.',
-      'Gerenciamento de estado reativo e navegação fluida seguindo padrões da Apple.',
-      'Foco em organização visual, hierarquia tipográfica e usabilidade mobile.',
-    ],
-    highlightsEn: [
-      'Built 100% in native Swift and SwiftUI without hybrid bridge overhead.',
-      'Reactive state management and fluid navigation following Apple patterns.',
-      'Focused on visual organization, typographic hierarchy, and mobile usability.',
-    ],
-    stack: [
-      { name: 'Swift', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg' },
-      { name: 'SwiftUI', icon: 'https://cdn.simpleicons.org/swift/F05138' },
-      { name: 'iOS', icon: 'https://cdn.simpleicons.org/apple/ffffff' },
-    ],
-    video: '/clearpath.mp4',
-    poster: '/clearpath-poster.jpg',
-    liveUrl: null,
-    repoUrl: 'https://github.com/GabrielVSL/ClearPath',
   },
 ];
 
 const engineeringRepos = [
   {
     code: '05',
-    title: 'RentCars',
-    tagPt: 'TypeScript · Arquitetura',
-    tagEn: 'TypeScript · Architecture',
-    descPt: 'Sistema estruturado para locação e gestão de veículos com tipagem estática em TypeScript.',
-    descEn: 'Structured vehicle rental management system built with static typing in TypeScript.',
-    repoUrl: 'https://github.com/GabrielVSL/RentCars',
+    title: 'Smart Budget Spring AI',
+    tagPt: 'Java 21 · Spring AI',
+    tagEn: 'Java 21 · Spring AI',
+    descPt: 'API inteligente de finanças pessoais com Spring Boot 3.4, Whisper STT, TTS e Tool Calling (@Tool) integrado ao H2.',
+    descEn: 'Smart personal finance API with Spring Boot 3.4, Whisper STT, TTS, and LLM Tool Calling (@Tool) backed by H2.',
+    repoUrl: 'https://github.com/GabrielVSL/Smart-Budget-Spring-AI',
   },
   {
     code: '06',
-    title: 'Educoins',
-    tagPt: 'Eng. de Software · PUC Minas',
-    tagEn: 'Software Eng. · PUC Minas',
-    descPt: 'Plataforma de moeda estudantil e gamificação acadêmica para engajamento e recompensas.',
-    descEn: 'Student currency and academic gamification platform for engagement and rewards.',
-    repoUrl: 'https://github.com/GabrielVSL/Educoins',
+    title: 'Checkout API · Design Patterns',
+    tagPt: 'Java 21 · GoF & SOLID',
+    tagEn: 'Java 21 · GoF & SOLID',
+    descPt: 'API REST de checkout em Spring Boot 3 aplicando Strategy, Chain of Responsibility, Facade, Singleton e Swagger UI.',
+    descEn: 'E-commerce checkout REST API in Spring Boot 3 applying Strategy, Chain of Responsibility, Facade, Singleton & Swagger UI.',
+    repoUrl: 'https://github.com/GabrielVSL/Checkout-Api-Design-Patterns',
   },
   {
     code: '07',
+    title: 'ClearPath',
+    tagPt: 'Swift · Mobile Nativo iOS',
+    tagEn: 'Swift · Native iOS',
+    descPt: 'Aplicação mobile nativa para iOS em Swift e SwiftUI com arquitetura declarativa e aderência às Apple HIG.',
+    descEn: 'Native iOS mobile app built with Swift and SwiftUI featuring declarative architecture and Apple HIG compliance.',
+    repoUrl: 'https://github.com/GabrielVSL/ClearPath',
+  },
+  {
+    code: '08',
     title: 'Sincronização de Threads',
     tagPt: 'Go · Concorrência',
     tagEn: 'Go · Concurrency',
     descPt: 'Implementação prática de paralelismo, goroutines e sincronização de processos em Go.',
     descEn: 'Practical implementation of parallelism, goroutines, and process synchronization in Go.',
     repoUrl: 'https://github.com/GabrielVSL/SincronizacaoThreads',
-  },
-  {
-    code: '08',
-    title: 'GSA · Sistema Aeroportuário',
-    tagPt: 'Java · POO',
-    tagEn: 'Java · OOP',
-    descPt: 'Gerenciador aeroportuário aplicando princípios sólidos de Orientação a Objetos em Java.',
-    descEn: 'Airport management system applying solid Object-Oriented Programming principles in Java.',
-    repoUrl: 'https://github.com/GabrielVSL/GSA-GerenciadorSistemaAeroportuario',
   },
 ];
 
@@ -265,7 +273,7 @@ export default function ProjectsSection() {
 
     observer.observe(section);
     return () => observer.disconnect();
-  }, []);
+  }, [activeIdx]);
 
   return (
     <section
@@ -303,8 +311,8 @@ export default function ProjectsSection() {
             <FiGithub className="text-[#749bff]" />
             <span>
               {lang === 'pt'
-                ? 'Explorar todos os 18+ repositórios no GitHub ↗'
-                : 'Explore all 18+ repositories on GitHub ↗'}
+                ? 'Explorar todos os 20+ repositórios no GitHub ↗'
+                : 'Explore all 20+ repositories on GitHub ↗'}
             </span>
           </a>
         </div>
@@ -411,19 +419,30 @@ export default function ProjectsSection() {
                   </span>
                 </div>
 
-                {/* Vídeo Único em Execução Suave */}
+                {/* Preview em Vídeo MP4 ou Print da Tela Principal em Alta Resolução */}
                 <div className="relative w-full aspect-video bg-[#090a0f]">
-                  <video
-                    ref={videoRef}
-                    key={activeProject.video}
-                    src={activeProject.video}
-                    poster={activeProject.poster}
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-full object-cover object-top"
-                  />
+                  {activeProject.video ? (
+                    <video
+                      ref={videoRef}
+                      key={activeProject.video}
+                      src={activeProject.video}
+                      poster={activeProject.poster}
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <img
+                      key={activeProject.image}
+                      src={activeProject.image}
+                      alt={activeProject.title}
+                      loading="eager"
+                      decoding="async"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  )}
                 </div>
 
                 {/* Fluxo de Arquitetura Rápido na Base da Janela (Estilo Grafo de Nós) */}

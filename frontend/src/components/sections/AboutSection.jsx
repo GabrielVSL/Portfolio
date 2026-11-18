@@ -69,9 +69,9 @@ const traceSteps = [
     titlePt: 'Inspecionando arquitetura Full Stack...',
     titleEn: 'Inspecting Full Stack architecture...',
     descPt:
-      'Domínio do ciclo completo: modelagem relacional (PostgreSQL), APIs REST e BFF Serverless (Node.js, Java, C#) e UI em React e SwiftUI.',
+      'Domínio do ciclo completo: modelagem relacional (PostgreSQL), APIs REST e assíncronas (Java 21/Spring & Micronaut, Python/FastAPI, Node.js, C#) e UI em React e SwiftUI.',
     descEn:
-      'Full lifecycle ownership: relational modeling (PostgreSQL), REST APIs & Serverless BFF (Node.js, Java, C#), and UI in React & SwiftUI.',
+      'Full lifecycle ownership: relational modeling (PostgreSQL), REST & async APIs (Java 21/Spring & Micronaut, Python/FastAPI, Node.js, C#), and UI in React & SwiftUI.',
   },
   {
     icon: FiBookOpen,
@@ -313,8 +313,8 @@ export default function AboutSection() {
                   <ul className="list-disc pl-4 space-y-1 text-[#424a53] text-[11px] sm:text-xs">
                     <li>
                       {lang === 'pt'
-                        ? 'Projetos estruturados com APIs RESTful (Node.js/Express, Java, C#), BFF Serverless, PostgreSQL e interfaces em React e SwiftUI.'
-                        : 'Projects architected with RESTful APIs (Node.js/Express, Java, C#), Serverless BFF, PostgreSQL, and UIs in React & SwiftUI.'}
+                        ? 'Projetos estruturados com APIs RESTful e assíncronas (Java 21, Python/FastAPI, Node.js, C#), PostgreSQL e interfaces em React e SwiftUI.'
+                        : 'Projects architected with RESTful and async APIs (Java 21, Python/FastAPI, Node.js, C#), PostgreSQL, and UIs in React & SwiftUI.'}
                     </li>
                     <li>
                       {lang === 'pt'

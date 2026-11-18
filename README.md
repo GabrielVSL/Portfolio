@@ -32,14 +32,14 @@ Este repositório contém o código-fonte do meu portfólio profissional. Mais d
 
 | # | Projeto | Categoria | Stack Principal | Links |
 | :-: | :--- | :--- | :--- | :--- |
-| **01** | **Orderly — Patties Burger Direct** | Em Produção · E-Commerce D2C & Food Tracker | `React` `Node.js` `Express` `PostgreSQL` `Sequelize` | [🌐 Live Demo](https://orderly-online.vercel.app/) · [💻 GitHub](https://github.com/GabrielVSL/Orderly) |
-| **02** | **Portal Educacional CSPC** | Em Produção · **-30% Chamados** | `React` `JavaScript` `Tailwind CSS` `Dynamic JSON` | [🌐 Live Demo](https://jogos-cspc.vercel.app) · [💻 GitHub](https://github.com/GabrielVSL/InformaticaCSPC) |
-| **03** | **BHFlix** | Frontend & Serverless BFF | `React` `Vite` `Tailwind CSS` `Vercel Serverless` | [🌐 Live Demo](https://bhflix.vercel.app) · [💻 GitHub](https://github.com/GabrielVSL/BHFlix) |
-| **04** | **ClearPath** | Mobile Nativo · Ecossistema Apple | `Swift` `SwiftUI` `iOS` | [💻 GitHub](https://github.com/GabrielVSL/ClearPath) |
-| **05** | **RentCars** | Arquitetura & Tipagem Estática | `TypeScript` `Node.js` `Clean Code` | [💻 GitHub](https://github.com/GabrielVSL/RentCars) |
-| **06** | **Educoins** | Eng. de Software · PUC Minas | `JavaScript` `SCSS` `REST API` | [💻 GitHub](https://github.com/GabrielVSL/Educoins) |
-| **07** | **Sincronização de Threads** | Concorrência & Sistemas | `Go (Golang)` `Goroutines` `Concurrency` | [💻 GitHub](https://github.com/GabrielVSL/SincronizacaoThreads) |
-| **08** | **GSA · Sistema Aeroportuário** | Programação Orientada a Objetos | `Java` `POO` `Arquitetura` | [💻 GitHub](https://github.com/GabrielVSL/GSA-GerenciadorSistemaAeroportuario) |
+| **01** | **ApexExperience** | Em Produção · Java 21, Micronaut & JWT | `Java 21` `Micronaut` `React 19` `TypeScript` `PostgreSQL` | [🌐 Live Demo](https://apex-experience.vercel.app/) · [💻 GitHub](https://github.com/GabrielVSL/ApexExperience) |
+| **02** | **Lumière** | Em Produção · Streaming, ETL & Python Async | `React 19` `TypeScript` `FastAPI` `SQLAlchemy` `GSAP` | [🌐 Live Demo](https://olumiere.vercel.app) · [💻 GitHub](https://github.com/GabrielVSL/Lumiere) |
+| **03** | **Patties Burger (Orderly)** | Em Produção · D2C, JWT & Food Tracker | `React` `Node.js` `Express` `PostgreSQL` `Sequelize` | [🌐 Live Demo](https://burger-patties.vercel.app/) · [💻 GitHub](https://github.com/GabrielVSL/PettiesBurger) |
+| **04** | **Portal Educacional CSPC** | Em Produção · **-30% Chamados** | `JavaScript` `HTML5` `CSS3` `Dynamic JSON` | [🌐 Live Demo](https://jogos-cspc.vercel.app) · [💻 GitHub](https://github.com/GabrielVSL/InformaticaCSPC) |
+| **05** | **Smart Budget Spring AI** | Java 21 · Spring AI & Tool Calling | `Java 21` `Spring Boot` `Spring AI` `H2` `JUnit 5` | [💻 GitHub](https://github.com/GabrielVSL/Smart-Budget-Spring-AI) |
+| **06** | **Checkout API · Design Patterns** | Java 21 · GoF & SOLID | `Java 21` `Spring Boot 3` `Design Patterns` `Swagger` | [💻 GitHub](https://github.com/GabrielVSL/Checkout-Api-Design-Patterns) |
+| **07** | **ClearPath** | Mobile Nativo · Ecossistema Apple | `Swift` `SwiftUI` `iOS` | [💻 GitHub](https://github.com/GabrielVSL/ClearPath) |
+| **08** | **Sincronização de Threads** | Concorrência & Sistemas | `Go (Golang)` `Goroutines` `Concurrency` | [💻 GitHub](https://github.com/GabrielVSL/SincronizacaoThreads) |
 
 ---
 
@@ -53,12 +53,12 @@ Portfolio/
     ├── index.html                           # Entry point HTML + Favicon SVG customizado
     ├── package.json                         # Dependências enxutas de produção
     ├── vite.config.js                       # Configuração de build do Vite
-    ├── public/                              # Previews em MP4 otimizados, posters JPG e ícone
+    ├── public/                              # Previews em MP4/JPG otimizados e ícone
     │   ├── favicon.svg                      # Ícone vetorial orbital + grafo (✦)
+    │   ├── apex-preview.jpg                 # Print em alta definição da tela principal
+    │   ├── lumiere-preview.jpg              # Print em alta definição da tela principal
     │   ├── orderly.mp4 / orderly-poster.jpg
-    │   ├── cspc.mp4 / cspc-poster.jpg
-    │   ├── bhflix.mp4 / bhflix-poster.jpg
-    │   └── clearpath.mp4 / clearpath-poster.jpg
+    │   └── cspc.mp4 / cspc-poster.jpg
     └── src/
         ├── main.jsx                         # Bootstrap React + LanguageProvider
         ├── App.jsx                          # Composição de seções + Lenis Smooth Scroll
