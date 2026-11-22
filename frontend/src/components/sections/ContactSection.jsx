@@ -566,10 +566,10 @@ export default function ContactSection() {
             <span className="text-[#5ce1e6]">03. Patties Burger</span> — D2C Smash Burger &amp; Food Tracker (Node.js, React, ACID)
           </div>
           <div>
-            <span className="text-[#5ce1e6]">04. Portal CSPC</span>    — Institutional EdTech Platform (-30% support tickets)
+            <span className="text-[#5ce1e6]">04. ItauBootcamp</span>   — BFF Next.js 15 + CheckoutService + Finance-AI-Service (3 repos)
           </div>
           <div>
-            <span className="text-[#749bff]">+ Repos:</span> Smart-Budget-Spring-AI, Checkout-Design-Patterns, ClearPath (Swift), Threads Sync (Go)
+            <span className="text-[#749bff]">+ Repos:</span> Portal CSPC (-30% tickets), GSA (C++), ClearPath (Swift), Threads Sync (Go)
           </div>
         </div>
       );

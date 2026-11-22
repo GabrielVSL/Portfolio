@@ -64,9 +64,11 @@ export default function Navbar() {
           onClick={() => scrollToSection('home')}
           className="cursor-pointer group flex items-center gap-2.5"
         >
-          <span className="font-['JetBrains_Mono'] text-xs text-[#749bff] transition-transform duration-300 group-hover:rotate-90">
-            ✦
-          </span>
+          <img
+            src="/favicon.svg"
+            alt="Gabriel Lopes"
+            className="w-6 h-6 rounded-md transition-transform duration-300 group-hover:scale-105"
+          />
           <span className="text-[#f8f9fc] font-medium tracking-tight text-sm md:text-base">
             Gabriel Lopes
           </span>

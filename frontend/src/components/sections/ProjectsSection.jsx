@@ -1,13 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   FiGithub,
   FiExternalLink,
   FiArrowUpRight,
-  FiLayers,
-  FiActivity,
-  FiFilm,
-  FiCheckCircle,
-  FiShoppingBag,
 } from 'react-icons/fi';
 import { useLanguage } from '../../contexts/LanguageContext';
 
@@ -15,7 +11,7 @@ const featuredProjects = [
   {
     id: 'apex',
     index: '01',
-    icon: FiActivity,
+    iconImg: '/icons/apex.png',
     tabTitle: 'ApexExperience',
     tabSubPt: 'Em Produção · Java & React',
     tabSubEn: 'In Production · Java & React',
@@ -61,7 +57,7 @@ const featuredProjects = [
   {
     id: 'lumiere',
     index: '02',
-    icon: FiFilm,
+    iconImg: '/icons/lumiere.png',
     tabTitle: 'Lumière',
     tabSubPt: 'Streaming · FastAPI & React',
     tabSubEn: 'Streaming · FastAPI & React',
@@ -107,7 +103,7 @@ const featuredProjects = [
   {
     id: 'patties',
     index: '03',
-    icon: FiShoppingBag,
+    iconImg: '/icons/patties.png',
     tabTitle: 'Patties Burger',
     tabSubPt: 'Em Produção · Node & React',
     tabSubEn: 'In Production · Node & React',
@@ -151,86 +147,131 @@ const featuredProjects = [
     repoUrl: 'https://github.com/GabrielVSL/PettiesBurger',
   },
   {
-    id: 'cspc',
+    id: 'itau-bootcamp',
     index: '04',
-    icon: FiCheckCircle,
-    tabTitle: 'Portal CSPC',
-    tabSubPt: 'Em Produção · -30% Chamados',
-    tabSubEn: 'In Production · -30% Tickets',
-    badgePt: 'IMPACTO REAL EM PRODUÇÃO',
-    badgeEn: 'REAL PRODUCTION IMPACT',
-    title: 'Portal Educacional CSPC',
-    urlDisplay: 'jogos-cspc.vercel.app',
-    accentColor: '#0284c7',
-    accentLine: '#38bdf8',
+    iconImg: '/icons/itau.png',
+    tabTitle: 'ItauBootcamp',
+    tabSubPt: 'BFF Next.js · Java 21 & IA',
+    tabSubEn: 'Next.js BFF · Java 21 & AI',
+    badgePt: 'PRODUÇÃO · BFF + 2 MICROSSERVIÇOS JAVA & IA',
+    badgeEn: 'PRODUCTION · BFF + 2 JAVA & AI MICROSERVICES',
+    title: 'ItauBootcamp — Portal Unificado Java & IA',
+    urlDisplay: 'itau-bootcamp.vercel.app',
+    accentColor: '#ea580c',
+    accentLine: '#fb923c',
     descriptionPt:
-      'Plataforma interativa implantada nos laboratórios do Colégio São Paulo da Cruz. Construída com uma arquitetura orientada a JSON dinâmico que permite atualizar atividades, quizzes e links pedagógicos sem alterar código-fonte, reduzindo em 30% os chamados técnicos operacionais.',
+      'Super-App financeiro em Next.js 15 + TypeScript que atua como camada BFF orquestrando dois microsserviços Java 21 / Spring Boot 3 independentes em produção: CheckoutService (Design Patterns GoF) e Finance-AI-Service (Consultor IA multimodal com Spring AI, Groq/Gemini e voz Whisper STT), isolados em bancos separados no Neon PostgreSQL.',
     descriptionEn:
-      'Interactive platform deployed across computer labs at Colégio São Paulo da Cruz. Built with a dynamic JSON-driven architecture that allows updating educational activities, quizzes, and links without touching source code, reducing operational support tickets by 30%.',
+      'Financial Super-App in Next.js 15 + TypeScript acting as a BFF layer orchestrating two independent Java 21 / Spring Boot 3 microservices in production: CheckoutService (GoF Design Patterns) and Finance-AI-Service (Multimodal AI Financial Advisor with Spring AI, Groq/Gemini, and Whisper STT voice), backed by isolated Neon PostgreSQL databases.',
     architectureNodes: [
-      { role: 'UI', value: 'HTML5 + CSS3 + JS' },
-      { role: 'Dados', value: 'Dynamic JSON' },
-      { role: 'Impacto', value: '-30% Chamados TI' },
+      { role: 'Portal BFF', value: 'Next.js 15 + TS' },
+      { role: 'Serviços', value: 'Java 21 · Spring & AI' },
+      { role: 'Dados', value: '2 DBs Neon Postgres' },
     ],
     highlightsPt: [
-      'Redução comprovada de 30% no volume de chamados técnicos durante as aulas de laboratório.',
-      'Arquitetura desacoplada por JSON (jogos.json): novos conteúdos e quizzes entram no ar em segundos sem redeploy complexo.',
-      'Interface de alta legibilidade e zero fricção em uso diário por estudantes e professores.',
+      'Orquestração cross-service no BFF com tratamento de falha parcial, anti-IDOR via cookie HttpOnly (X-Session-Id) e recálculo server-side de preços.',
+      'Consultor IA multimodal (texto, voz Whisper STT e @Tool Calling real no SQL) com roteador Groq LPU + fallback automático para Google Gemini.',
+      'Arquitetura distribuída em 3 repositórios com GoF (Facade, Strategy O(1), Chain of Responsibility) e 57 testes automatizados nos microsserviços.',
     ],
     highlightsEn: [
-      'Proven 30% reduction in technical support tickets during computer lab classes.',
-      'JSON-decoupled architecture (jogos.json): new educational games and quizzes go live in seconds without complex code changes.',
-      'High-legibility, zero-friction UI used daily by students and teachers.',
+      'Cross-service BFF orchestration with partial-failure handling, HttpOnly session anti-IDOR (X-Session-Id), and server-side price recalculation.',
+      'Multimodal AI advisor (text, Whisper STT voice & real SQL @Tool Calling) with Groq LPU router + automatic Google Gemini fallback.',
+      'Distributed 3-repository architecture with GoF (Facade, O(1) Strategy, Chain of Responsibility) and 57 automated microservice tests.',
     ],
     stack: [
-      { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
-      { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
-      { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
-      { name: 'Vercel', icon: 'https://cdn.simpleicons.org/vercel/ffffff' },
+      { name: 'Next.js 15', icon: 'https://cdn.simpleicons.org/nextdotjs/ffffff' },
+      { name: 'Java 21', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
+      { name: 'Spring AI', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg' },
+      { name: 'Groq', icon: '/icons/groq.svg' },
+      { name: 'Gemini', icon: 'https://cdn.simpleicons.org/googlegemini/8E75B2' },
+      { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+      { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
     ],
-    video: '/cspc.mp4',
-    poster: '/cspc-poster.jpg',
-    image: '/cspc-poster.jpg',
-    liveUrl: 'https://jogos-cspc.vercel.app',
-    repoUrl: 'https://github.com/GabrielVSL/InformaticaCSPC',
+    video: null,
+    slides: [
+      {
+        src: '/itau-hero.png',
+        labelPt: 'Portal BFF',
+        labelEn: 'Portal BFF',
+        url: 'itau-bootcamp.vercel.app',
+      },
+      {
+        src: '/itau-shop.png',
+        labelPt: 'CheckoutService',
+        labelEn: 'CheckoutService',
+        url: 'itau-bootcamp.vercel.app/shop',
+      },
+      {
+        src: '/itau-budget.png',
+        labelPt: 'Finance-AI',
+        labelEn: 'Finance-AI',
+        url: 'itau-bootcamp.vercel.app/budget',
+      },
+    ],
+    liveUrl: 'https://itau-bootcamp.vercel.app',
+    repoUrl: 'https://github.com/GabrielVSL/ItauBootcamp',
+    repoLabelPt: 'Portal BFF',
+    repoLabelEn: 'Portal BFF',
+    extraRepos: [
+      {
+        name: 'CheckoutService',
+        url: 'https://github.com/GabrielVSL/CheckoutService',
+      },
+      {
+        name: 'Finance-AI-Service',
+        url: 'https://github.com/GabrielVSL/Finance-AI-Service',
+      },
+    ],
   },
 ];
 
 const engineeringRepos = [
   {
     code: '05',
-    title: 'Smart Budget Spring AI',
-    tagPt: 'Java 21 · Spring AI',
-    tagEn: 'Java 21 · Spring AI',
-    descPt: 'API inteligente de finanças pessoais com Spring Boot 3.4, Whisper STT, TTS e Tool Calling (@Tool) integrado ao H2.',
-    descEn: 'Smart personal finance API with Spring Boot 3.4, Whisper STT, TTS, and LLM Tool Calling (@Tool) backed by H2.',
-    repoUrl: 'https://github.com/GabrielVSL/Smart-Budget-Spring-AI',
+    title: 'Portal CSPC',
+    iconImg: '/icons/cspc.png',
+    tagPt: 'Em Produção · -30% Chamados',
+    tagEn: 'In Production · -30% Tickets',
+    descPt:
+      'Plataforma educacional implantada nos laboratórios do Colégio São Paulo da Cruz com motor JSON dinâmico sem alterar código.',
+    descEn:
+      'Educational platform deployed across Colégio São Paulo da Cruz labs powered by a dynamic JSON engine.',
+    repoUrl: 'https://github.com/GabrielVSL/InformaticaCSPC',
   },
   {
     code: '06',
-    title: 'Checkout API · Design Patterns',
-    tagPt: 'Java 21 · GoF & SOLID',
-    tagEn: 'Java 21 · GoF & SOLID',
-    descPt: 'API REST de checkout em Spring Boot 3 aplicando Strategy, Chain of Responsibility, Facade, Singleton e Swagger UI.',
-    descEn: 'E-commerce checkout REST API in Spring Boot 3 applying Strategy, Chain of Responsibility, Facade, Singleton & Swagger UI.',
-    repoUrl: 'https://github.com/GabrielVSL/Checkout-Api-Design-Patterns',
+    title: 'GSA · Sistema Aeroportuário',
+    iconImg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg',
+    tagPt: 'C++ · AED & POO',
+    tagEn: 'C++ · DSA & OOP',
+    descPt:
+      'Sistema em C++ para gestão de voos, tripulação e reservas da companhia Voo Seguro com foco em estruturas de dados.',
+    descEn:
+      'C++ management system for flights, crew, and reservations engineered with core data structures and OOP.',
+    repoUrl: 'https://github.com/GabrielVSL/GSA-GerenciadorSistemaAeroportuario',
   },
   {
     code: '07',
     title: 'ClearPath',
+    iconImg: '/icons/clearpath.png',
     tagPt: 'Swift · Mobile Nativo iOS',
     tagEn: 'Swift · Native iOS',
-    descPt: 'Aplicação mobile nativa para iOS em Swift e SwiftUI com arquitetura declarativa e aderência às Apple HIG.',
-    descEn: 'Native iOS mobile app built with Swift and SwiftUI featuring declarative architecture and Apple HIG compliance.',
+    descPt:
+      'Aplicação mobile nativa para iOS em Swift e SwiftUI com arquitetura declarativa e aderência às Apple HIG.',
+    descEn:
+      'Native iOS mobile app built with Swift and SwiftUI featuring declarative architecture and Apple HIG compliance.',
     repoUrl: 'https://github.com/GabrielVSL/ClearPath',
   },
   {
     code: '08',
     title: 'Sincronização de Threads',
+    iconImg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg',
     tagPt: 'Go · Concorrência',
     tagEn: 'Go · Concurrency',
-    descPt: 'Implementação prática de paralelismo, goroutines e sincronização de processos em Go.',
-    descEn: 'Practical implementation of parallelism, goroutines, and process synchronization in Go.',
+    descPt:
+      'Implementação prática de paralelismo, goroutines e sincronização de processos em Go.',
+    descEn:
+      'Practical implementation of parallelism, goroutines, and process synchronization in Go.',
     repoUrl: 'https://github.com/GabrielVSL/SincronizacaoThreads',
   },
 ];
@@ -238,42 +279,74 @@ const engineeringRepos = [
 export default function ProjectsSection() {
   const { lang } = useLanguage();
   const [activeIdx, setActiveIdx] = useState(0);
+  const [activeSlideIdx, setActiveSlideIdx] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isHoveringMedia, setIsHoveringMedia] = useState(false);
   const videoRef = useRef(null);
   const sectionRef = useRef(null);
 
   const activeProject = featuredProjects[activeIdx];
+  const hasSlides = Array.isArray(activeProject.slides) && activeProject.slides.length > 0;
+  const currentSlide = hasSlides
+    ? activeProject.slides[activeSlideIdx % activeProject.slides.length]
+    : null;
 
-  // Reproduz apenas o vídeo único ativo quando a seção está visível (zero peso extra na página)
+  // Reseta o slide ao trocar de projeto
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    video.load();
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {});
-    }
+    setActiveSlideIdx(0);
   }, [activeIdx]);
 
+  // Observa visibilidade da seção para pausar vídeo ou autoplay de slides fora da tela
   useEffect(() => {
     const section = sectionRef.current;
-    const video = videoRef.current;
-    if (!section || !video) return;
+    if (!section) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.15 }
     );
 
     observer.observe(section);
     return () => observer.disconnect();
-  }, [activeIdx]);
+  }, []);
+
+  // Reproduz apenas o vídeo único ativo quando a seção está visível (zero peso extra na página)
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !activeProject.video) return;
+
+    video.load();
+    if (isVisible) {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    }
+  }, [activeIdx, activeProject.video, isVisible]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !activeProject.video) return;
+
+    if (isVisible) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [isVisible, activeProject.video]);
+
+  // Alterna suavemente entre as telas reais do projeto multi-serviço quando visível
+  useEffect(() => {
+    if (!hasSlides || !isVisible || isHoveringMedia) return;
+
+    const timer = setInterval(() => {
+      setActiveSlideIdx((prev) => (prev + 1) % activeProject.slides.length);
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [hasSlides, isVisible, isHoveringMedia, activeProject.slides]);
 
   return (
     <section
@@ -318,11 +391,10 @@ export default function ProjectsSection() {
         </div>
 
         {/* =================================================================
-            4 ABAS SELETORAS DE PROJETOS (Fiel aos 4 cards seletores azuis da print)
+            4 ABAS SELETORAS DE PROJETOS (Ícones oficiais de cada site)
            ================================================================= */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
           {featuredProjects.map((proj, idx) => {
-            const Icon = proj.icon;
             const isSelected = activeIdx === idx;
             return (
               <button
@@ -337,17 +409,30 @@ export default function ProjectsSection() {
               >
                 <div className="flex items-center justify-between">
                   <span
-                    className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs ${
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden p-1 transition-all ${
                       isSelected
-                        ? 'bg-[#3b82f6]/20 text-[#60a5fa]'
-                        : 'bg-white/[0.05] text-[#8a93a2]'
+                        ? 'bg-white/[0.1] ring-1 ring-white/20'
+                        : 'bg-white/[0.05] ring-1 ring-white/[0.08]'
                     }`}
                   >
-                    <Icon size={14} />
+                    <img
+                      src={proj.iconImg}
+                      alt={`${proj.tabTitle} icon`}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-contain rounded-[4px]"
+                    />
                   </span>
-                  <span className="font-['JetBrains_Mono'] text-[11px] text-[#6a6d78]">
-                    [{proj.index}]
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    {proj.extraRepos && (
+                      <span className="hidden sm:inline-block font-['JetBrains_Mono'] text-[10px] px-1.5 py-0.5 rounded bg-white/[0.06] text-[#fb923c] border border-[#fb923c]/25">
+                        3 repos
+                      </span>
+                    )}
+                    <span className="font-['JetBrains_Mono'] text-[11px] text-[#6a6d78]">
+                      [{proj.index}]
+                    </span>
+                  </div>
                 </div>
 
                 <div>
@@ -372,13 +457,13 @@ export default function ProjectsSection() {
         </div>
 
         {/* =================================================================
-            PALCO PRINCIPAL EMOLDURADO POR LINHAS PONTILHADAS (1 Único Vídeo Ativo!)
+            PALCO PRINCIPAL EMOLDURADO POR LINHAS PONTILHADAS
            ================================================================= */}
         <div className="border border-dashed border-white/[0.14] bg-[#0d0e13]">
           <div className="grid grid-cols-1 lg:grid-cols-12">
-            {/* LADO ESQUERDO: JANELA DARK MACOS SOBRE GEOMETRIA COLORIDA (Como o card azul da print) */}
+            {/* LADO ESQUERDO: JANELA DARK MACOS SOBRE GEOMETRIA COLORIDA */}
             <div className="lg:col-span-7 relative p-6 sm:p-10 lg:p-12 flex items-center justify-center overflow-hidden border-b lg:border-b-0 lg:border-r border-dashed border-white/[0.14] min-h-[380px] sm:min-h-[460px]">
-              {/* Geometria Azul/Colorida no Canto Superior Esquerdo (idêntica ao bloco azul da referência) */}
+              {/* Geometria Colorida no Canto Superior Esquerdo */}
               <svg
                 viewBox="0 0 600 500"
                 className="pointer-events-none absolute top-0 left-0 w-[78%] h-[78%]"
@@ -402,26 +487,52 @@ export default function ProjectsSection() {
                 </g>
               </svg>
 
-              {/* Janela Dark Mode Estilo macOS / IDE (1 único vídeo MP4 acelerado por GPU) */}
-              <div className="relative z-10 w-full rounded-xl bg-[#14161d] border border-white/[0.12] shadow-[0_24px_60px_rgba(0,0,0,0.75)] overflow-hidden">
+              {/* Janela Dark Mode Estilo macOS / IDE */}
+              <div
+                onMouseEnter={() => setIsHoveringMedia(true)}
+                onMouseLeave={() => setIsHoveringMedia(false)}
+                className="relative z-10 w-full rounded-xl bg-[#14161d] border border-white/[0.12] shadow-[0_24px_60px_rgba(0,0,0,0.75)] overflow-hidden"
+              >
                 {/* Barra de Título da Janela */}
-                <div className="h-9 px-4 bg-[#1a1d26] border-b border-white/[0.07] flex items-center justify-between">
-                  <div className="flex items-center gap-2">
+                <div className="h-9 px-4 bg-[#1a1d26] border-b border-white/[0.07] flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 shrink-0">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
                   </div>
-                  <div className="px-3 py-0.5 rounded bg-[#0e1015] border border-white/[0.06] font-['JetBrains_Mono'] text-[11px] text-[#8a93a2] truncate max-w-[220px] sm:max-w-xs">
-                    {activeProject.urlDisplay}
+                  <div className="px-3 py-0.5 rounded bg-[#0e1015] border border-white/[0.06] font-['JetBrains_Mono'] text-[11px] text-[#8a93a2] truncate max-w-[220px] sm:max-w-xs flex items-center gap-1.5">
+                    <img
+                      src={activeProject.iconImg}
+                      alt=""
+                      className="w-3.5 h-3.5 object-contain rounded-[2px] shrink-0"
+                    />
+                    <span className="truncate">
+                      {currentSlide ? currentSlide.url : activeProject.urlDisplay}
+                    </span>
                   </div>
-                  <span className="font-['JetBrains_Mono'] text-[10px] text-[#6a6d78]">
+                  <span className="font-['JetBrains_Mono'] text-[10px] text-[#6a6d78] shrink-0">
                     [{activeProject.index}]
                   </span>
                 </div>
 
-                {/* Preview em Vídeo MP4 ou Print da Tela Principal em Alta Resolução */}
-                <div className="relative w-full aspect-video bg-[#090a0f]">
-                  {activeProject.video ? (
+                {/* Preview: Vídeo MP4, Slideshow Animado ou Print em Alta Resolução */}
+                <div className="relative w-full aspect-video bg-[#090a0f] overflow-hidden">
+                  {hasSlides ? (
+                    <AnimatePresence mode="sync" initial={false}>
+                      <motion.img
+                        key={currentSlide.src}
+                        src={currentSlide.src}
+                        alt={lang === 'pt' ? currentSlide.labelPt : currentSlide.labelEn}
+                        loading="eager"
+                        decoding="async"
+                        initial={{ opacity: 0, scale: 1.035 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.99 }}
+                        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute inset-0 w-full h-full object-cover object-top"
+                      />
+                    </AnimatePresence>
+                  ) : activeProject.video ? (
                     <video
                       ref={videoRef}
                       key={activeProject.video}
@@ -475,9 +586,19 @@ export default function ProjectsSection() {
             {/* LADO DIREITO: ESPECIFICAÇÕES DE ENGENHARIA, STACK COM ÍCONES & LINKS */}
             <div className="lg:col-span-5 p-8 sm:p-10 lg:p-12 flex flex-col justify-between">
               <div>
-                <span className="font-['JetBrains_Mono'] text-[11px] tracking-[0.12em] uppercase text-[#60a5fa] block mb-3">
-                  {lang === 'pt' ? activeProject.badgePt : activeProject.badgeEn}
-                </span>
+                <div className="flex items-center gap-2.5 mb-3">
+                  <img
+                    src={activeProject.iconImg}
+                    alt={`${activeProject.tabTitle} logo`}
+                    className="w-5 h-5 object-contain rounded-[4px]"
+                  />
+                  <span
+                    className="font-['JetBrains_Mono'] text-[11px] tracking-[0.12em] uppercase"
+                    style={{ color: activeProject.accentLine }}
+                  >
+                    {lang === 'pt' ? activeProject.badgePt : activeProject.badgeEn}
+                  </span>
+                </div>
 
                 <h3 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#f8f9fc] mb-4">
                   {activeProject.title}
@@ -490,7 +611,7 @@ export default function ProjectsSection() {
                 </p>
 
                 {/* Decisões Técnicas / Destaques */}
-                <div className="space-y-2.5 mb-8 pt-5 border-t border-dashed border-white/[0.12]">
+                <div className="space-y-2.5 mb-7 pt-5 border-t border-dashed border-white/[0.12]">
                   <p className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-wider text-[#8a93a2] mb-2">
                     {lang === 'pt' ? 'Destaques de Engenharia' : 'Engineering Highlights'}
                   </p>
@@ -502,7 +623,10 @@ export default function ProjectsSection() {
                       key={i}
                       className="flex items-start gap-2.5 text-xs sm:text-[13px] text-[#d2d7e0] font-light leading-relaxed"
                     >
-                      <span className="font-['JetBrains_Mono'] text-[#60a5fa] mt-0.5">
+                      <span
+                        className="font-['JetBrains_Mono'] mt-0.5"
+                        style={{ color: activeProject.accentLine }}
+                      >
                         +
                       </span>
                       <span>{item}</span>
@@ -510,39 +634,65 @@ export default function ProjectsSection() {
                   ))}
                 </div>
 
-                {/* Botões de Ação Diretos (Live Demo + GitHub) */}
-                <div className="flex flex-wrap items-center gap-3">
-                  {activeProject.liveUrl && (
+                {/* Botões de Ação Diretos (Live Demo + GitHub principal + microsserviços abaixo quando houver) */}
+                <div className="flex flex-col gap-2.5">
+                  <div className="flex flex-wrap items-center gap-3">
+                    {activeProject.liveUrl && (
+                      <a
+                        href={activeProject.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#f8f9fc] text-[#0d0e13] text-xs sm:text-sm font-medium hover:bg-[#e2e6ee] transition-colors"
+                      >
+                        <span>
+                          {lang === 'pt' ? 'Testar Aplicação' : 'Launch Live App'}
+                        </span>
+                        <FiArrowUpRight className="text-sm" />
+                      </a>
+                    )}
+
                     <a
-                      href={activeProject.liveUrl}
+                      href={activeProject.repoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#f8f9fc] text-[#0d0e13] text-xs sm:text-sm font-medium hover:bg-[#e2e6ee] transition-colors"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/25 bg-white/[0.02] hover:bg-white/[0.08] text-xs sm:text-sm font-medium text-[#f8f9fc] transition-colors"
                     >
+                      <FiGithub className="text-sm" />
                       <span>
-                        {lang === 'pt' ? 'Testar Aplicação' : 'Launch Live App'}
+                        {activeProject.repoLabelPt
+                          ? lang === 'pt'
+                            ? activeProject.repoLabelPt
+                            : activeProject.repoLabelEn
+                          : lang === 'pt'
+                            ? 'Código no GitHub'
+                            : 'View on GitHub'}
                       </span>
-                      <FiArrowUpRight className="text-sm" />
+                      <FiArrowUpRight className="text-sm opacity-70" />
                     </a>
-                  )}
+                  </div>
 
-                  <a
-                    href={activeProject.repoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/25 bg-white/[0.02] hover:bg-white/[0.08] text-xs sm:text-sm font-medium text-[#f8f9fc] transition-colors"
-                  >
-                    <FiGithub className="text-sm" />
-                    <span>
-                      {lang === 'pt' ? 'Código no GitHub' : 'View on GitHub'}
-                    </span>
-                    <FiArrowUpRight className="text-sm opacity-70" />
-                  </a>
+                  {activeProject.extraRepos && (
+                    <div className="flex flex-wrap items-center gap-3">
+                      {activeProject.extraRepos.map((repo) => (
+                        <a
+                          key={repo.name}
+                          href={repo.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/25 bg-white/[0.02] hover:bg-white/[0.08] text-xs sm:text-sm font-medium text-[#f8f9fc] transition-colors"
+                        >
+                          <FiGithub className="text-sm" />
+                          <span>{repo.name}</span>
+                          <FiArrowUpRight className="text-sm opacity-70" />
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
 
               {/* Badges de Tecnologias Usadas (Mesmo estilo visual da AboutSection) */}
-              <div className="mt-10 pt-6 border-t border-dashed border-white/[0.12]">
+              <div className="mt-8 pt-6 border-t border-dashed border-white/[0.12]">
                 <p className="text-xs font-medium text-[#8a93a2] mb-3">
                   {lang === 'pt' ? 'Construído com' : 'Built with'}
                 </p>
@@ -589,9 +739,18 @@ export default function ProjectsSection() {
                     <span className="text-[#6a6d78]">[{repo.code}]</span>
                   </div>
 
-                  <h4 className="text-base font-semibold text-[#f8f9fc] group-hover:text-[#60a5fa] transition-colors flex items-center justify-between">
-                    <span>{repo.title}</span>
-                    <FiExternalLink className="text-xs opacity-50 group-hover:opacity-100 transition-opacity" />
+                  <h4 className="text-base font-semibold text-[#f8f9fc] group-hover:text-[#60a5fa] transition-colors flex items-center justify-between gap-2">
+                    <span className="inline-flex items-center gap-2 min-w-0">
+                      <img
+                        src={repo.iconImg}
+                        alt={`${repo.title} icon`}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-4 h-4 object-contain rounded-[3px] shrink-0"
+                      />
+                      <span className="truncate">{repo.title}</span>
+                    </span>
+                    <FiExternalLink className="text-xs opacity-50 group-hover:opacity-100 transition-opacity shrink-0" />
                   </h4>
 
                   <p className="mt-1.5 text-xs text-[#8a93a2] font-light leading-relaxed">
@@ -600,7 +759,7 @@ export default function ProjectsSection() {
                 </div>
 
                 <div className="inline-flex items-center gap-1.5 font-['JetBrains_Mono'] text-[11px] text-[#b2bbc5] group-hover:text-white transition-colors pt-2">
-                  <FiLayers className="text-xs text-[#60a5fa]" />
+                  <FiGithub className="text-xs text-[#60a5fa]" />
                   <span>{lang === 'pt' ? 'Abrir repositório ↗' : 'Open repository ↗'}</span>
                 </div>
               </a>
